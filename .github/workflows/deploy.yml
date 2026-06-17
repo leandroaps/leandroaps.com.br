@@ -19,10 +19,14 @@ jobs:
           npm install
           npm run build
 
+      - name: List output files
+        run: find dist/ -print
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          server-dir: ./leandroaps.com.br/web/dist/
+          server-dir: ${{ secrets.server_dir }}
+          local-dir: dist/
