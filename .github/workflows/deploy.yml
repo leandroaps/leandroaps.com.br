@@ -22,6 +22,12 @@ jobs:
       - name: List output files
         run: find build/client/ -print
 
+      - name: 🔍 Test FTP connectivity
+        run: |
+          echo "Testing DNS for FTP host..."
+          nslookup ${{ secrets.ftp_host }} || echo "DNS lookup failed"
+          curl -v --max-time 10 ftp://${{ secrets.ftp_host }} || echo "FTP connection failed"
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
