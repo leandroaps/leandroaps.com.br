@@ -504,6 +504,8 @@ export function Welcome() {
               src="/photo.jpg"
               alt="Leandro Aparecido de Siqueira"
               className="w-full h-full object-cover"
+              fetchPriority="high"
+              decoding="async"
               onError={() => setPhotoError(true)}
             />
           )}
