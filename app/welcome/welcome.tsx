@@ -485,10 +485,14 @@ export function Welcome() {
       {/* ── Hero ── */}
       <section
         id="hero"
-        className="relative flex flex-col items-center justify-center min-h-screen pt-20 px-6 bg-white text-center"
+        className="relative flex flex-col items-center justify-center min-h-screen pt-20 px-6 bg-cover bg-center bg-no-repeat text-center"
+        style={{ backgroundImage: "url('/nasa-w9sZL_hvNug-unsplash.jpg')" }}
       >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#222222]/60" />
+
         {/* Photo */}
-        <div className="mb-8 w-40 h-40 rounded-full overflow-hidden border-4 border-[#F8F8F8] shadow-lg shrink-0">
+        <div className="relative z-10 mb-8 w-40 h-40 rounded-full overflow-hidden border-4 border-white/20 shadow-lg shrink-0">
           {photoError ? (
             <div className="w-full h-full flex items-center justify-center bg-[#222222] text-white text-3xl font-semibold select-none">
               LAS
@@ -503,16 +507,19 @@ export function Welcome() {
           )}
         </div>
 
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#7B7B7B] mb-4">
+        <p className="relative z-10 text-xs font-semibold tracking-[0.2em] uppercase text-white/60 mb-4">
           Campinas · São Paulo · Brazil
         </p>
 
-        <h1 className="text-5xl lg:text-7xl font-bold text-[#222222] leading-tight mb-6">
+        <h1 className="relative z-10 text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
           Leandro A. Siqueira
         </h1>
 
-        <div className="hero-subtitle text-left mb-10 max-w-sm">
-          <p className="text-lg text-[#7B7B7B] leading-relaxed">
+        <div
+          className="hero-subtitle relative z-10 text-left mb-10 max-w-sm"
+          style={{ borderLeftColor: "rgba(255,255,255,0.4)" }}
+        >
+          <p className="text-lg text-white/70 leading-relaxed">
             Senior Front-End Engineer
             <br />
             React &amp; TypeScript · Technical Lead
@@ -522,12 +529,12 @@ export function Welcome() {
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="relative z-10 flex flex-wrap items-center justify-center gap-3">
           <a
             href="https://github.com/leandroaps"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#222222] text-white text-sm font-medium rounded-full hover:bg-[#444444] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#222222] text-sm font-medium rounded-full hover:bg-white/90 transition-colors"
           >
             <GitHubIcon /> GitHub
           </a>
@@ -535,7 +542,7 @@ export function Welcome() {
             href="https://www.linkedin.com/in/leandroaps"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-[#222222] text-[#222222] text-sm font-medium rounded-full hover:bg-[#F8F8F8] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white text-sm font-medium rounded-full hover:bg-white/10 transition-colors"
           >
             LinkedIn
           </a>
@@ -543,14 +550,14 @@ export function Welcome() {
             href="https://medium.com/@leandroaps"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-[#7B7B7B]/30 text-[#7B7B7B] text-sm font-medium rounded-full hover:bg-[#F8F8F8] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white/70 text-sm font-medium rounded-full hover:bg-white/10 transition-colors"
           >
             <MediumIcon /> Medium
           </a>
         </div>
 
         {/* Scroll caret */}
-        <div className="scroll-caret absolute bottom-10 left-1/2 text-[#7B7B7B]">
+        <div className="scroll-caret absolute bottom-10 left-1/2 z-10 text-white/60">
           <ChevronDownIcon />
         </div>
       </section>
@@ -593,8 +600,8 @@ export function Welcome() {
             >
               {[
                 { stat: "20+", label: "Years of experience" },
-                { stat: "300%", label: "Performance boost delivered" },
-                { stat: "80%+", label: "Code coverage achieved" },
+                { stat: "30+", label: "Projects delivered" },
+                { stat: "5+", label: "Companies led digital transformations" },
               ].map(({ stat, label }) => (
                 <div key={label} className="bg-white rounded-2xl p-6">
                   <p className="text-4xl font-bold text-[#222222]">{stat}</p>
