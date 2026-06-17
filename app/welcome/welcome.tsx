@@ -486,7 +486,9 @@ export function Welcome() {
       <section
         id="hero"
         className="relative flex flex-col items-center justify-center min-h-screen pt-20 px-6 bg-cover bg-center bg-no-repeat text-center"
-        style={{ backgroundImage: "url('/nasa-w9sZL_hvNug-unsplash.jpg')" }}
+        style={{
+          backgroundImage: "url('/damien-dufour-BUm3ke-GfPQ-unsplash.jpg')",
+        }}
       >
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-[#222222]/60" />
@@ -872,7 +874,7 @@ export function Welcome() {
               <h3 className="font-semibold text-lg mb-4">
                 Leandro A. Siqueira
               </h3>
-              <p className="text-sm text-[#7B7B7B] leading-relaxed">
+              <p className="text-sm text-[#9B9B9B] leading-relaxed">
                 Senior Front-End Engineer based in Campinas, São Paulo, Brazil.
                 Building scalable web products with React &amp; TypeScript.
               </p>
@@ -880,7 +882,7 @@ export function Welcome() {
 
             {/* Navigation */}
             <div>
-              <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-4">
+              <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#9B9B9B] mb-4">
                 Navigation
               </h4>
               <ul className="space-y-2">
@@ -888,7 +890,7 @@ export function Welcome() {
                   <li key={href}>
                     <a
                       href={href}
-                      className="text-sm text-[#7B7B7B] hover:text-white transition-colors"
+                      className="text-sm text-[#9B9B9B] hover:text-white transition-colors"
                     >
                       {label}
                     </a>
@@ -899,14 +901,14 @@ export function Welcome() {
 
             {/* Connect */}
             <div>
-              <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-4">
+              <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#9B9B9B] mb-4">
                 Connect
               </h4>
               <ul className="space-y-3">
                 <li>
                   <a
                     href="mailto:leandroaps@gmail.com"
-                    className="text-sm text-[#7B7B7B] hover:text-white transition-colors"
+                    className="text-sm text-[#9B9B9B] hover:text-white transition-colors"
                   >
                     leandroaps@gmail.com
                   </a>
@@ -916,7 +918,7 @@ export function Welcome() {
                     href="https://www.linkedin.com/in/leandroaps"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-[#7B7B7B] hover:text-white transition-colors"
+                    className="text-sm text-[#9B9B9B] hover:text-white transition-colors"
                   >
                     LinkedIn
                   </a>
@@ -926,7 +928,7 @@ export function Welcome() {
                     href="https://github.com/leandroaps"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[#7B7B7B] hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-sm text-[#9B9B9B] hover:text-white transition-colors"
                   >
                     <GitHubIcon /> GitHub
                   </a>
@@ -936,7 +938,7 @@ export function Welcome() {
                     href="https://medium.com/@leandroaps"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[#7B7B7B] hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-sm text-[#9B9B9B] hover:text-white transition-colors"
                   >
                     <MediumIcon /> Medium
                   </a>
@@ -946,9 +948,22 @@ export function Welcome() {
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-[#7B7B7B]">
+            <p className="text-xs text-[#9B9B9B]">
               © {new Date().getFullYear()} Leandro A. Siqueira. All rights
               reserved.
+            </p>
+            <p className="text-xs text-[#9B9B9B]">
+              Designed and built with ❤️ in Campinas, São Paulo, Brazil.
+            </p>
+            <p className="text-xs text-[#9B9B9B]">
+              <a
+                href="https://unsplash.com/@damien_dufour"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-[#9B9B9B] hover:text-white transition-colors"
+              >
+                Photo by Damien Dufour on Unsplash
+              </a>
             </p>
           </div>
         </div>
