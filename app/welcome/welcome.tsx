@@ -495,7 +495,7 @@ export function Welcome() {
             </div>
           ) : (
             <img
-              src="assets/photo.jpg"
+              src="/photo.jpg"
               alt="Leandro A. Siqueira"
               className="w-full h-full object-cover"
               onError={() => setPhotoError(true)}
@@ -942,9 +942,6 @@ export function Welcome() {
             <p className="text-xs text-[#7B7B7B]">
               © {new Date().getFullYear()} Leandro A. Siqueira. All rights
               reserved.
-            </p>
-            <p className="text-xs text-[#7B7B7B]">
-              Built with React &amp; Tailwind CSS
             </p>
           </div>
         </div>

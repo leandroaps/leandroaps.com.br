@@ -1,34 +1,7 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Aeonik Trial';
-  src: url('/fonts/AeonikTrial-Regular.woff2') format('woff2'),
-       url('/fonts/AeonikTrial-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aeonik Trial';
-  src: url('/fonts/AeonikTrial-Medium.woff2') format('woff2'),
-       url('/fonts/AeonikTrial-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aeonik Trial';
-  src: url('/fonts/AeonikTrial-Bold.woff2') format('woff2'),
-       url('/fonts/AeonikTrial-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@theme {
-  --font-sans: 'Aeonik Trial', ui-sans-serif, system-ui, sans-serif;
+:root {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -39,15 +12,16 @@ html {
 body {
   background-color: #ffffff;
   color: #222222;
-  font-family: 'Aeonik Trial', ui-sans-serif, system-ui, sans-serif;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Scroll-triggered fade-in animation */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-on-scroll.is-visible {
@@ -61,7 +35,7 @@ body {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -3px;
   left: 0;
@@ -84,8 +58,13 @@ body {
 
 /* Scroll chevron bounce */
 @keyframes bounce-down {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(8px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
 }
 
 .scroll-caret {
