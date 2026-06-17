@@ -1,9 +1,9 @@
-import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
+import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Leandro A. Siqueira — Senior Front-End Engineer" },
+    { title: "Leandro Aparecido de Siqueira — Senior Front-End Engineer" },
     {
       name: "description",
       content:

@@ -502,7 +502,7 @@ export function Welcome() {
           ) : (
             <img
               src="/photo.jpg"
-              alt="Leandro A. Siqueira"
+              alt="Leandro Aparecido de Siqueira"
               className="w-full h-full object-cover"
               onError={() => setPhotoError(true)}
             />
@@ -514,7 +514,7 @@ export function Welcome() {
         </p>
 
         <h1 className="relative z-10 text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-          Leandro A. Siqueira
+          Leandro Aparecido de Siqueira
         </h1>
 
         <div
@@ -872,7 +872,7 @@ export function Welcome() {
             {/* Brand */}
             <div>
               <h3 className="font-semibold text-lg mb-4">
-                Leandro A. Siqueira
+                Leandro Aparecido de Siqueira
               </h3>
               <p className="text-sm text-[#9B9B9B] leading-relaxed">
                 Senior Front-End Engineer based in Campinas, São Paulo, Brazil.
@@ -949,8 +949,8 @@ export function Welcome() {
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-[#9B9B9B]">
-              © {new Date().getFullYear()} Leandro A. Siqueira. All rights
-              reserved.
+              © {new Date().getFullYear()} Leandro Aparecido de Siqueira. All
+              rights reserved.
             </p>
             <p className="text-xs text-[#9B9B9B]">
               Designed and built with ❤️ in Campinas, São Paulo, Brazil.
