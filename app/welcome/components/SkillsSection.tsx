@@ -1,6 +1,6 @@
 import { SKILLS } from "../data";
+import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
-import { SectionLabel } from "./shared";
 
 export function SkillsSection() {
   return (

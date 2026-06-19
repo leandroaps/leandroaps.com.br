@@ -1,4 +1,4 @@
-import { SectionLabel } from "./shared";
+import { SectionLabel } from "./SectionLabel";
 
 export function AboutSection() {
   return (

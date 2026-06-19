@@ -1,6 +1,7 @@
 import { EXPERIENCE } from "../data";
+import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
-import { SectionLabel, Tag } from "./shared";
+import { Tag } from "./Tag";
 
 export function ExperienceSection() {
   return (

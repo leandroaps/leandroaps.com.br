@@ -1,6 +1,6 @@
 import { CERTIFICATIONS } from "../data";
+import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
-import { SectionLabel } from "./shared";
 
 export function CertificationsSection() {
   return (

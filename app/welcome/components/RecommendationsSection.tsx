@@ -1,6 +1,6 @@
 import { RECOMMENDATIONS } from "../data";
 import { LinkedInButton } from "./LinkedInButton.tsx";
-import { SectionLabel } from "./shared";
+import { SectionLabel } from "./SectionLabel";
 
 export function RecommendationsSection() {
   return (

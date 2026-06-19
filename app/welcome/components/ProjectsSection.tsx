@@ -1,5 +1,5 @@
 import { PROJECTS } from "../data";
-import { SectionLabel } from "./shared";
+import { SectionLabel } from "./SectionLabel";
 
 export function ProjectsSection() {
   return (
