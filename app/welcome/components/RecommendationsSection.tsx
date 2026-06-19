@@ -1,3 +1,4 @@
+import { RECOMMENDATIONS } from "../data";
 import { SectionLabel } from "./shared";
 
 export function RecommendationsSection() {
@@ -12,7 +13,7 @@ export function RecommendationsSection() {
           <p className="text-[#7B7B7B] text-base mb-12">
             View colleague and manager recommendations on{" "}
             <a
-              href="https://www.linkedin.com/in/leandroaps"
+              href="https://www.linkedin.com/in/leandroaps/details/recommendations/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#222222] font-medium underline underline-offset-2 hover:opacity-70 transition-opacity"
@@ -24,19 +25,17 @@ export function RecommendationsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[0, 1, 2].map((i) => (
+          {RECOMMENDATIONS.map((rec, i) => (
             <div
               key={i}
               className="animate-on-scroll bg-white rounded-2xl p-6"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              style={{ transitionDelay: "100ms" }}
             >
               <div className="text-5xl text-[#F8F8F8] font-serif leading-none mb-4 select-none">
                 "
               </div>
               <p className="text-sm text-[#7B7B7B] leading-relaxed italic mb-6">
-                Leandro consistently demonstrates exceptional technical
-                leadership and an ability to drive measurable results through
-                architecture decisions and team mentoring.
+                {rec.text}
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#F8F8F8] shrink-0" />
@@ -45,7 +44,7 @@ export function RecommendationsSection() {
                     LinkedIn Colleague
                   </p>
                   <a
-                    href="https://www.linkedin.com/in/leandroaps"
+                    href="https://www.linkedin.com/in/leandroaps/details/recommendations/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-[#7B7B7B] hover:text-[#222222] transition-colors"

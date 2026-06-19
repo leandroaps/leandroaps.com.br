@@ -5,7 +5,7 @@ export const NAV_ITEMS = [
   { label: "Skills", href: "#skills" },
   { label: "Certifications", href: "#certifications" },
   { label: "Projects", href: "#projects" },
-  // { label: "Recommendations", href: "#recommendations" },
+  { label: "Recommendations", href: "#recommendations" },
 ];
 
 export const EXPERIENCE = [
@@ -90,7 +90,7 @@ export const EDUCATION = [
     institution: "Fundação Getulio Vargas",
     degree: "Master of Business Administration",
     field: "Information Technology",
-    year: "2011",
+    year: "2013",
   },
   {
     institution: "Universidade Paulista",
@@ -104,53 +104,96 @@ export const EDUCATION = [
     field: "Computer Engineering",
     year: "1998 – 2001",
   },
+  {
+    institution: "Colégio Batista de Campinas",
+    degree: "Colleague Degree",
+    field: "Data Processing",
+    year: "1995 – 1997",
+  },
 ];
 
 export const SKILLS = [
   {
     category: "Frontend",
     items: [
-      "React",
-      "TypeScript",
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "Ant Design",
       "Angular",
-      "jQuery",
+      "Ant Design",
       "Bootstrap",
+      "CSS3",
+      "GraphQL",
+      "HTML5",
+      "JavaScript",
+      "jQuery",
+      "Next.js",
+      "React Query",
+      "React",
+      "Redux",
+      "Styled Components",
+      "Tailwind CSS",
+      "TypeScript",
+      "Zustand",
+    ],
+  },
+  {
+    category: "Quality & Testing",
+    items: [
+      "Accessibility (a11y)",
+      "Browserstack",
+      "Code Review",
+      "Cypress",
+      "Integration Testing",
+      "Performance Optimisation",
+      "Playwright",
+      "Unit Testing",
     ],
   },
   {
     category: "Tools & Infrastructure",
     items: [
-      "Vite",
-      "Webpack",
-      "Vitest",
-      "Cypress",
-      "Browserstack",
+      "AWS",
+      "Azure",
+      "CI/CD",
       "Docker",
-      "Kubernetes",
-      "Jenkins",
       "Git",
+      "GitHub Actions",
+      "Google Cloud",
+      "Jenkins",
+      "Kubernetes",
+      "Linux",
+      "Vite",
+      "Vitest",
+      "Webpack",
     ],
   },
   {
-    category: "Practices & Leadership",
+    category: "Agile & Leadership",
     items: [
-      "Agile / Scrum",
+      "Agile & Scrum Methodologies",
       "Technical Leadership",
-      "Performance Optimisation",
-      "Accessibility & SEO",
-      "CI/CD",
-      "Code Review",
       "Team Mentoring",
+      "RDA Documentation",
+      "Team Leadership",
+      "Waterfall Methodologies",
+    ],
+  },
+  {
+    category: "Artificial Intelligence (AI)",
+    items: [
+      "AI Agents",
+      "ChatGPT",
+      "Claude Code",
+      "CoPilot",
+      "Cursor",
+      "Gemini Pro",
+      "Kiro",
+      "LLM Prompting",
+      "Prompt Engineering",
     ],
   },
 ];
 
 export const CERTIFICATIONS = [
+  { name: "Tech Lead Program", issuer: "IFTL" },
   { name: "Claude Code — The Practical Guide", issuer: "Anthropic" },
   {
     name: "Enterprise Agile: Changing Your Culture",
@@ -159,6 +202,27 @@ export const CERTIFICATIONS = [
   { name: "Coding Exercises: React.js", issuer: "LinkedIn Learning" },
   { name: "Managing Virtual Teams", issuer: "LinkedIn Learning" },
   { name: "Building Modern Projects with React", issuer: "LinkedIn Learning" },
+];
+
+export const RECOMMENDATIONS = [
+  {
+    text: "Leandro sempre foi muito disponível em ajudar, um excelente profissional, inteiramente dedicado aos projetos que está envolvido. Com grande entendimento das ferramentas utilizadas e uma capacidade extraordinária.",
+  },
+  {
+    text: "Leandro sempre foi um profissional com bastante competência e que era bastante dedicado ao seu trabalho dentro do UOL, empresa na qual trabalhamos juntos. Enquanto eu administrava a Reunião de Frontenders (um encontro quinzenal com o intuito de trocar informações da área), o Leandro sempre levantou e demonstrou conhecimento sobre pontos pertinentes. Além disso, trabalhamos juntos em um projeto de login único, no qual pudemos trocar informações ao longo do processo de cocriação. Ter um profissional como o Leandro no trabalho é certamente algo valioso, tendo em vista a dificuldade em se conseguir profissionais altamente qualificados no mercado de trabalho atualmente.",
+  },
+  {
+    text: "Very much a team player, Leandro was always dedicated and goal-focused front-end guy, yet easygoing. I feel confident he would be an asset to the lucky company that hire him.",
+  },
+  {
+    text: "I had a very positive experience working with Leandro for 3 years. Working as a technical lead, he demonstrated to be very knowledgeable in all things related to software development, specially regarding front-end / browser technologies, content servers, web design and usability, etc.. I had the opportunity to learn a lot from him about all these subjects, as he is always very up to date with the industry latest novelties. He is also a very nice person who was able to easily relate to different kinds of team member's profiles.",
+  },
+  {
+    text: "Um dos mais competentes webmasters e front-end engineers com que já pude trabalhar. Sua participação no time de desenvolvimento era fundamental com soluções criativas e inovadoras que vinham de encontro a melhor experiência possível para o usuário.",
+  },
+  {
+    text: "Leandro has been doing a good job as our front-end engineer, specially considering our legacy systems, some of which are a really tough challenge, with hairy jQuery customizations, but he has managed it alright! Also a very good-humored guy, nice to have around!",
+  },
 ];
 
 export const PROJECTS = [

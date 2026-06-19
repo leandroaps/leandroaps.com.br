@@ -47,6 +47,16 @@ export function ExperienceSection() {
             </div>
           ))}
         </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <a
+            href="https://www.linkedin.com/in/leandroaps/details/experience/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#7B7B7B] hover:text-[#222222] transition-colors"
+          >
+            See on LinkedIn →
+          </a>
+        </div>
       </div>
     </section>
   );

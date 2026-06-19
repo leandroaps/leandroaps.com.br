@@ -1,14 +1,14 @@
-import { useScrollAnimation } from "./hooks";
-import { NavBar } from "./components/NavBar";
-import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
+import { CertificationsSection } from "./components/CertificationsSection";
 import { EducationSection } from "./components/EducationSection";
 import { ExperienceSection } from "./components/ExperienceSection";
-import { SkillsSection } from "./components/SkillsSection";
-import { CertificationsSection } from "./components/CertificationsSection";
-import { ProjectsSection } from "./components/ProjectsSection";
 import { Footer } from "./components/Footer";
-// import { RecommendationsSection } from "./components/RecommendationsSection";
+import { HeroSection } from "./components/HeroSection";
+import { NavBar } from "./components/NavBar";
+import { ProjectsSection } from "./components/ProjectsSection";
+import { RecommendationsSection } from "./components/RecommendationsSection";
+import { SkillsSection } from "./components/SkillsSection";
+import { useScrollAnimation } from "./hooks";
 
 export function Welcome() {
   useScrollAnimation();
@@ -23,7 +23,7 @@ export function Welcome() {
       <SkillsSection />
       <CertificationsSection />
       <ProjectsSection />
-      {/* <RecommendationsSection /> */}
+      <RecommendationsSection />
       <Footer />
     </div>
   );
