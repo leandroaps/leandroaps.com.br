@@ -1,7 +1,7 @@
-import { EDUCATION } from "../data";
-import { SectionLabel } from "./SectionLabel";
+import { SectionLabel } from "@/home/components/SectionLabel";
+import type { Education } from "@/home/types";
 
-export function EducationSection() {
+export function EducationSection({ education }: { education: Education[] }) {
   return (
     <section id="education" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -10,8 +10,8 @@ export function EducationSection() {
           <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Education</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EDUCATION.map((edu, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {education.map((edu, i) => (
             <div
               key={edu.institution}
               className="animate-on-scroll bg-[#F8F8F8] rounded-2xl p-6"

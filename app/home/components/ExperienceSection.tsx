@@ -1,9 +1,9 @@
-import { EXPERIENCE } from "../data";
+import type { Experience } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
 import { Tag } from "./Tag";
 
-export function ExperienceSection() {
+export function ExperienceSection({ experience }: { experience: Experience[] }) {
   return (
     <section id="experience" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
@@ -13,7 +13,7 @@ export function ExperienceSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EXPERIENCE.map((exp, i) => (
+          {experience.map((exp, i) => (
             <div
               key={exp.company + exp.period}
               className="animate-on-scroll bg-white rounded-2xl p-6 flex flex-col"

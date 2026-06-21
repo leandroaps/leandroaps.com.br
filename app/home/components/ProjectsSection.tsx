@@ -1,7 +1,7 @@
-import { PROJECTS } from "../data";
+import type { Project } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 
-export function ProjectsSection() {
+export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
     <section id="projects" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -11,7 +11,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROJECTS.map((project, i) => (
+          {projects.map((project, i) => (
             <div
               key={project.title}
               className="animate-on-scroll group bg-[#F8F8F8] rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300"

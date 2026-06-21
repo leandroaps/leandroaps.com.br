@@ -1,3 +1,4 @@
+import type { ResumeData } from "./types";
 import { AboutSection } from "./components/AboutSection";
 import { CertificationsSection } from "./components/CertificationsSection";
 import { EducationSection } from "./components/EducationSection";
@@ -10,21 +11,21 @@ import { RecommendationsSection } from "./components/RecommendationsSection";
 import { SkillsSection } from "./components/SkillsSection";
 import { useScrollAnimation } from "./hooks";
 
-export function Welcome() {
+export function Welcome({ data }: { data: ResumeData }) {
   useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-white text-[#222222]">
-      <NavBar />
+      <NavBar navItems={data.nav} />
       <HeroSection />
-      <AboutSection />
-      <EducationSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <CertificationsSection />
-      <ProjectsSection />
-      <RecommendationsSection />
-      <Footer />
+      <AboutSection about={data.about} />
+      <EducationSection education={data.education} />
+      <ExperienceSection experience={data.experience} />
+      <SkillsSection skills={data.skills} />
+      <CertificationsSection certifications={data.certifications} />
+      <ProjectsSection projects={data.projects} />
+      <RecommendationsSection recommendations={data.recommendations} />
+      <Footer navItems={data.nav} />
     </div>
   );
 }

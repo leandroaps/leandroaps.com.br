@@ -1,7 +1,7 @@
-import { NAV_ITEMS } from "../data";
+import type { NavItem } from "@/home/types";
 import { GitHubIcon, MediumIcon } from "../icons";
 
-export function Footer() {
+export function Footer({ navItems }: { navItems: NavItem[] }) {
   return (
     <footer className="bg-[#222222] text-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
@@ -19,7 +19,7 @@ export function Footer() {
               Navigation
             </h4>
             <ul className="space-y-2">
-              {NAV_ITEMS.map(({ label, href }) => (
+              {navItems.map(({ label, href }) => (
                 <li key={href}>
                   <a
                     href={href}

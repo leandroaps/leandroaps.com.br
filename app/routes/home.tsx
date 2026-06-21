@@ -1,7 +1,9 @@
-import { Welcome } from "../welcome/welcome";
+import resumeContent from "@/content/resume.json";
+import { Welcome } from "@/home/home";
+import type { ResumeData } from "@/home/types";
 import type { Route } from "./+types/home";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "Leandro Aparecido de Siqueira — Senior Front-End Engineer" },
     {
@@ -12,6 +14,10 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
-  return <Welcome />;
+export function loader(): ResumeData {
+  return resumeContent as ResumeData;
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
+  return <Welcome data={loaderData} />;
 }

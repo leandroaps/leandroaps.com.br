@@ -1,4 +1,4 @@
-import { LinkedInButton } from "./LinkedInButton.tsx";
+import { LinkedInButton } from "./LinkedInButton.tsx.js";
 
 export function SeeOnLinkedIn({ url }: { url: string }) {
   return (

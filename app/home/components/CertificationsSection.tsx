@@ -1,8 +1,8 @@
-import { CERTIFICATIONS } from "../data";
+import type { Certification } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
 
-export function CertificationsSection() {
+export function CertificationsSection({ certifications }: { certifications: Certification[] }) {
   return (
     <section id="certifications" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
@@ -11,7 +11,7 @@ export function CertificationsSection() {
           <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Certifications</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {CERTIFICATIONS.map((cert, i) => (
+          {certifications.map((cert, i) => (
             <div
               key={cert.name}
               className="animate-on-scroll bg-white rounded-2xl p-6 flex items-start gap-4"

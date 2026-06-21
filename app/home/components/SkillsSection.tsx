@@ -1,8 +1,8 @@
-import { SKILLS } from "../data";
+import type { SkillGroup } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
 
-export function SkillsSection() {
+export function SkillsSection({ skills }: { skills: SkillGroup[] }) {
   return (
     <section id="skills" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -12,7 +12,7 @@ export function SkillsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {SKILLS.map((group, i) => (
+          {skills.map((group, i) => (
             <div
               key={group.category}
               className="animate-on-scroll"

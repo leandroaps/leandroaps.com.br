@@ -1,10 +1,10 @@
+import type { NavItem } from "@/home/types";
 import { useState } from "react";
-import { NAV_ITEMS } from "../data";
 import { useActiveSection, useScrolled } from "../hooks";
 import { CloseIcon, GitHubIcon, MediumIcon, MenuIcon } from "../icons";
 import { scrollToSection } from "../utils/scroll";
 
-export function NavBar() {
+export function NavBar({ navItems }: { navItems: NavItem[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrolled = useScrolled();
   const activeSection = useActiveSection();
@@ -31,7 +31,7 @@ export function NavBar() {
         </a>
 
         <div className="hidden lg:flex items-center gap-7">
-          {NAV_ITEMS.map(({ label, href }) => (
+          {navItems.map(({ label, href }) => (
             <a
               key={href}
               href={href}
@@ -79,7 +79,7 @@ export function NavBar() {
 
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-[#F8F8F8] px-6 py-4">
-          {NAV_ITEMS.map(({ label, href }) => (
+          {navItems.map(({ label, href }) => (
             <a
               key={href}
               href={href}
