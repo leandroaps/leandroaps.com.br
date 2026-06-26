@@ -24,9 +24,16 @@ export function AboutSection({ about }: { about: About }) {
             style={{ transitionDelay: "160ms" }}
           >
             {about.stats.map(({ stat, label }) => (
-              <div key={label} className="bg-white rounded-2xl p-6">
-                <p className="text-4xl font-bold text-[#222222]">{stat}</p>
-                <p className="text-sm text-[#7B7B7B] mt-1">{label}</p>
+              <div
+                key={label}
+                className="group bg-white rounded-2xl p-6 cursor-default hover:bg-[#222222] transition-colors duration-300"
+              >
+                <p className="text-4xl font-bold text-[#222222] group-hover:text-white transition-colors duration-300">
+                  {stat}
+                </p>
+                <p className="text-sm text-[#7B7B7B] mt-1 group-hover:text-white/70 transition-colors duration-300">
+                  {label}
+                </p>
               </div>
             ))}
           </div>

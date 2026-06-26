@@ -14,19 +14,21 @@ export function CertificationsSection({ certifications }: { certifications: Cert
           {certifications.map((cert, i) => (
             <div
               key={cert.name}
-              className="animate-on-scroll bg-white rounded-2xl p-6 flex items-start gap-4"
+              className="animate-on-scroll group bg-white rounded-2xl p-6 flex items-start gap-4 cursor-default hover:bg-[#222222] transition-colors duration-300"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="w-9 h-9 rounded-full bg-[#F8F8F8] flex items-center justify-center shrink-0">
-                <span className="text-xs font-semibold text-[#7B7B7B]">
+              <div className="w-9 h-9 rounded-full bg-[#F8F8F8] flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors duration-300">
+                <span className="text-xs font-semibold text-[#7B7B7B] group-hover:text-white/50 transition-colors duration-300">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#222222] leading-snug mb-1">
+                <p className="text-sm font-semibold text-[#222222] leading-snug mb-1 group-hover:text-white transition-colors duration-300">
                   {cert.name}
                 </p>
-                <p className="text-xs text-[#7B7B7B]">{cert.issuer}</p>
+                <p className="text-xs text-[#7B7B7B] group-hover:text-white/70 transition-colors duration-300">
+                  {cert.issuer}
+                </p>
               </div>
             </div>
           ))}

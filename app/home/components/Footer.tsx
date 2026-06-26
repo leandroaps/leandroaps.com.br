@@ -88,12 +88,12 @@ export function Footer({ navItems }: { navItems: NavItem[] }) {
           </p>
           <p className="text-xs text-[#9B9B9B]">
             <a
-              href="https://unsplash.com/@damien_dufour"
+              href="https://unsplash.com/@thommilkovic"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-xs text-[#9B9B9B] hover:text-white transition-colors"
             >
-              Photo by Damien Dufour on Unsplash
+              Photo by Thom Milkovic on Unsplash
             </a>
           </p>
         </div>

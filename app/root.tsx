@@ -28,7 +28,7 @@ const SITE_URL = "https://leandroaps.com.br";
 const OG_TITLE = "Leandro Aparecido de Siqueira — Senior Front-End Engineer";
 const OG_DESCRIPTION =
   "Senior Front-End Engineer specializing in React & TypeScript with 20+ years building scalable web products. Technical Lead, Agile practitioner, based in Campinas, Brazil.";
-const OG_IMAGE = `${SITE_URL}/nasa-w9sZL_hvNug-unsplash.jpg`;
+const OG_IMAGE = `${SITE_URL}/robert-ritchie-JEicDFy5Cd8-unsplash.jpg`;
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

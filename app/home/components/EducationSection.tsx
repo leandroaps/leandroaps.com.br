@@ -14,15 +14,21 @@ export function EducationSection({ education }: { education: Education[] }) {
           {education.map((edu, i) => (
             <div
               key={edu.institution}
-              className="animate-on-scroll bg-[#F8F8F8] rounded-2xl p-6"
+              className="animate-on-scroll group bg-[#F8F8F8] rounded-2xl p-6 cursor-default hover:bg-[#222222] transition-colors duration-300"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <p className="text-xs font-semibold tracking-widest uppercase text-[#7B7B7B] mb-3">
+              <p className="text-xs font-semibold tracking-widest uppercase text-[#7B7B7B] mb-3 group-hover:text-white/50 transition-colors duration-300">
                 {edu.year}
               </p>
-              <h3 className="font-semibold text-[#222222] text-lg mb-2">{edu.institution}</h3>
-              <p className="text-sm text-[#7B7B7B]">{edu.degree}</p>
-              <p className="text-sm text-[#7B7B7B] mt-0.5">{edu.field}</p>
+              <h3 className="font-semibold text-[#222222] text-lg mb-2 group-hover:text-white transition-colors duration-300">
+                {edu.institution}
+              </h3>
+              <p className="text-sm text-[#7B7B7B] group-hover:text-white/70 transition-colors duration-300">
+                {edu.degree}
+              </p>
+              <p className="text-sm text-[#7B7B7B] mt-0.5 group-hover:text-white/70 transition-colors duration-300">
+                {edu.field}
+              </p>
             </div>
           ))}
         </div>

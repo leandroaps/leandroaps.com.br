@@ -41,37 +41,40 @@ export function BehavioralProfileSection({
             {topStrengths.map((strength, i) => (
               <div
                 key={strength.title}
-                className="animate-on-scroll bg-white rounded-2xl p-6"
+                className="animate-on-scroll group bg-white rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold text-[#7B7B7B] shrink-0">
+                  <span className="text-xs font-bold text-[#7B7B7B] shrink-0 group-hover:text-white/50 transition-colors duration-300">
                     #{strength.rank}
                   </span>
-                  <h3 className="text-sm font-semibold text-[#222222]">{strength.title}</h3>
+                  <h3 className="text-sm font-semibold text-[#222222] group-hover:text-white transition-colors duration-300">
+                    {strength.title}
+                  </h3>
                 </div>
-                <p className="text-xs text-[#7B7B7B] leading-relaxed">{strength.description}</p>
+                <p className="text-xs text-[#7B7B7B] leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                  {strength.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-1">
-          Soft skills
-        </p>
-        <p className="text-xs text-[#7B7B7B] mb-6"> Your strongest signals</p>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {traits.map((trait, i) => (
             <div
               key={`${trait.title}-${i}`}
-              className={`animate-on-scroll bg-white rounded-2xl p-6 ${
-                trait.isSeniorComposite ? "ring-2 ring-[#222222]" : ""
+              className={`animate-on-scroll group bg-white rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300 ${
+                trait.isSeniorComposite ? "ring-2 ring-[#222222] hover:ring-transparent" : ""
               }`}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <h3 className="text-sm font-semibold text-[#222222] mb-2">{trait.title}</h3>
-              <p className="text-xs text-[#7B7B7B] leading-relaxed">{trait.description}</p>
+              <h3 className="text-sm font-semibold text-[#222222] group-hover:text-white mb-2 transition-colors duration-300">
+                {trait.title}
+              </h3>
+              <p className="text-xs text-[#7B7B7B] leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                {trait.description}
+              </p>
             </div>
           ))}
         </div>

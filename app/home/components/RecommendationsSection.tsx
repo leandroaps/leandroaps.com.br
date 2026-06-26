@@ -27,18 +27,25 @@ export function RecommendationsSection({ recommendations }: { recommendations: R
           {recommendations.map((rec, i) => (
             <div
               key={i}
-              className="animate-on-scroll bg-white rounded-2xl p-6"
+              className="animate-on-scroll group bg-white rounded-2xl p-6 cursor-default hover:bg-[#222222] transition-colors duration-300"
               style={{ transitionDelay: "100ms" }}
             >
-              <div className="text-5xl text-[#F8F8F8] font-serif leading-none mb-4 select-none">
+              <div className="text-5xl text-[#F8F8F8] font-serif leading-none mb-4 select-none group-hover:text-white/20 transition-colors duration-300">
                 &ldquo;
               </div>
-              <p className="text-sm text-[#7B7B7B] leading-relaxed italic mb-6">{rec.text}</p>
+              <p className="text-sm text-[#7B7B7B] leading-relaxed italic mb-6 group-hover:text-white/70 transition-colors duration-300">
+                {rec.text}
+              </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F8F8F8] shrink-0" />
+                <div className="w-10 h-10 rounded-full bg-[#F8F8F8] shrink-0 group-hover:bg-white/10 transition-colors duration-300" />
                 <div>
-                  <p className="text-sm font-semibold text-[#222222]">LinkedIn Colleague</p>
-                  <LinkedInButton url={"recommendations"} />
+                  <p className="text-sm font-semibold text-[#222222] group-hover:text-white transition-colors duration-300">
+                    LinkedIn Colleague
+                  </p>
+                  <LinkedInButton
+                    url={"recommendations"}
+                    className="group-hover:text-white/70 group-hover:hover:text-white"
+                  />
                 </div>
               </div>
             </div>

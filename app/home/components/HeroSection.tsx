@@ -9,7 +9,7 @@ export function HeroSection() {
       id="hero"
       className="relative flex flex-col items-center justify-center min-h-screen pt-20 px-6 bg-cover bg-center bg-no-repeat text-center"
       style={{
-        backgroundImage: "url('/damien-dufour-BUm3ke-GfPQ-unsplash.jpg')",
+        backgroundImage: "url('/thom-milkovic-skUTVJi8-jc-unsplash.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-[#222222]/60" />
