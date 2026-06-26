@@ -25,7 +25,7 @@ export function SkillsSection({ skills }: { skills: SkillGroup[] }) {
                 {group.items.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-block px-3 py-1.5 bg-[#F8F8F8] text-[#222222] text-sm rounded-lg font-medium"
+                    className="inline-block px-3 py-1.5 bg-[#F8F8F8] text-[#222222] text-sm rounded-lg font-medium cursor-default hover:bg-[#222222] hover:text-white transition-colors duration-300"
                   >
                     {skill}
                   </span>

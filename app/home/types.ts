@@ -59,7 +59,6 @@ export interface BehavioralStrength {
 export interface BehavioralTrait {
   title: string;
   description: string;
-  isSeniorComposite?: boolean;
 }
 
 export interface BehavioralProfile {

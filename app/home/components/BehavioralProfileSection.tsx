@@ -60,13 +60,16 @@ export function BehavioralProfileSection({
           </div>
         </div>
 
+        <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-1">
+          Soft skills
+        </p>
+        <p className="text-xs text-[#7B7B7B] mb-6">Your strongest signals</p>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {traits.map((trait, i) => (
             <div
               key={`${trait.title}-${i}`}
-              className={`animate-on-scroll group bg-white rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300 ${
-                trait.isSeniorComposite ? "ring-2 ring-[#222222] hover:ring-transparent" : ""
-              }`}
+              className={`animate-on-scroll group bg-white rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300 `}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <h3 className="text-sm font-semibold text-[#222222] group-hover:text-white mb-2 transition-colors duration-300">
