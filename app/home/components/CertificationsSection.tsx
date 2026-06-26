@@ -4,7 +4,7 @@ import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
 
 export function CertificationsSection({ certifications }: { certifications: Certification[] }) {
   return (
-    <section id="certifications" className="py-24 px-6 bg-[#F8F8F8]">
+    <section id="certifications" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
           <SectionLabel n="06" label="Credentials" />
@@ -14,7 +14,7 @@ export function CertificationsSection({ certifications }: { certifications: Cert
           {certifications.map((cert, i) => (
             <div
               key={cert.name}
-              className="animate-on-scroll group bg-white rounded-2xl p-6 flex items-start gap-4 cursor-default hover:bg-[#222222] transition-colors duration-300"
+              className="animate-on-scroll group bg-[#F8F8F8] rounded-2xl p-6 flex items-start gap-4 cursor-default hover:bg-[#222222] transition-colors duration-300"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="w-9 h-9 rounded-full bg-[#F8F8F8] flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors duration-300">

@@ -3,7 +3,7 @@ import { SectionLabel } from "./SectionLabel";
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
-    <section id="projects" className="py-24 px-6 bg-white">
+    <section id="projects" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
           <SectionLabel n="07" label="Selected Work" />
@@ -14,7 +14,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className="animate-on-scroll group bg-[#F8F8F8] rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300"
+              className="animate-on-scroll group bg-white rounded-2xl p-6 flex flex-col cursor-default hover:bg-[#222222] transition-colors duration-300"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <p className="text-xs font-semibold tracking-widest uppercase text-[#7B7B7B] mb-2 group-hover:text-[#7B7B7B]">

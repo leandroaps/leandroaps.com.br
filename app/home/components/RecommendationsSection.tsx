@@ -4,7 +4,7 @@ import { SectionLabel } from "./SectionLabel";
 
 export function RecommendationsSection({ recommendations }: { recommendations: Recommendation[] }) {
   return (
-    <section id="recommendations" className="py-24 px-6 bg-[#F8F8F8]">
+    <section id="recommendations" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
           <SectionLabel n="08" label="Testimonials" />
@@ -27,7 +27,7 @@ export function RecommendationsSection({ recommendations }: { recommendations: R
           {recommendations.map((rec, i) => (
             <div
               key={i}
-              className="animate-on-scroll group bg-white rounded-2xl p-6 cursor-default hover:bg-[#222222] transition-colors duration-300"
+              className="animate-on-scroll group bg-[#F8F8F8] rounded-2xl p-6 cursor-default hover:bg-[#222222] transition-colors duration-300"
               style={{ transitionDelay: "100ms" }}
             >
               <div className="text-5xl text-[#F8F8F8] font-serif leading-none mb-4 select-none group-hover:text-white/20 transition-colors duration-300">
