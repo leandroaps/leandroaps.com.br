@@ -4,6 +4,7 @@
     { "label": "Education", "href": "#education" },
     { "label": "Experience", "href": "#experience" },
     { "label": "Skills", "href": "#skills" },
+    { "label": "Behavioral Profile", "href": "#behavioral-profile" },
     { "label": "Certifications", "href": "#certifications" },
     { "label": "Projects", "href": "#projects" },
     { "label": "Recommendations", "href": "#recommendations" }
@@ -213,6 +214,89 @@
       ]
     }
   ],
+  "behavioralProfile": {
+    "signals": ["Naturally curious", "Surfaces issues early", "Async-first communicator"],
+    "topStrengths": [
+      {
+        "rank": 1,
+        "title": "Client Orientation",
+        "description": "Stays close to the client, communicates early, and makes them feel heard."
+      },
+      {
+        "rank": 2,
+        "title": "Growth Mindset",
+        "description": "Looks for what to learn next instead of staying inside what they already know."
+      },
+      {
+        "rank": 3,
+        "title": "Proactiveness",
+        "description": "Surfaces issues, owns scope, and moves work forward without prompting."
+      }
+    ],
+    "traits": [
+      {
+        "title": "Reliability",
+        "description": "Delivers on what they say, on time, with consistent quality."
+      },
+      {
+        "title": "Communication",
+        "description": "Writes clearly, engages stakeholders, and keeps the team aligned."
+      },
+      {
+        "title": "Senior Behaviors",
+        "description": "Composite of ownership, curiosity, and discipline. The traits we look for in senior placements.",
+        "isSeniorComposite": true
+      },
+      {
+        "title": "Adaptability",
+        "description": "Adjusts to feedback and new constraints quickly without losing momentum."
+      },
+      {
+        "title": "Feedback Receptiveness",
+        "description": "Engages with feedback constructively and turns it into action."
+      },
+      {
+        "title": "Ownership",
+        "description": "Treats the work as theirs: accountable, transparent, and finishes what they start."
+      },
+      {
+        "title": "Initiative",
+        "description": "Spots opportunities and acts on them without waiting for direction."
+      },
+      {
+        "title": "Time Discipline",
+        "description": "Manages their own deadlines and trade-offs without external pressure."
+      },
+      {
+        "title": "Attention to Quality",
+        "description": "Notices the small things that separate solid from sloppy work."
+      },
+      {
+        "title": "Self-Management",
+        "description": "Plans their own time, makes decisions, and stays productive without supervision."
+      },
+      {
+        "title": "Problem Solving",
+        "description": "Breaks down ambiguous problems and arrives at a workable answer."
+      },
+      {
+        "title": "Client Orientation",
+        "description": "Stays close to the client, communicates early, and makes them feel heard."
+      },
+      {
+        "title": "Growth Mindset",
+        "description": "Looks for what to learn next instead of staying inside what they already know."
+      },
+      {
+        "title": "Proactiveness",
+        "description": "Surfaces issues, owns scope, and moves work forward without prompting."
+      },
+      {
+        "title": "Collaboration",
+        "description": "Works well with others, takes feedback in stride, and includes the right people."
+      }
+    ]
+  },
   "certifications": [
     { "name": "Tech Lead Program", "issuer": "IFTL" },
     { "name": "Claude Code — The Practical Guide", "issuer": "Anthropic" },

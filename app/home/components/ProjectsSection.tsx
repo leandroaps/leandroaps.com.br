@@ -6,7 +6,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
     <section id="projects" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="06" label="Selected Work" />
+          <SectionLabel n="07" label="Selected Work" />
           <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Projects</h2>
         </div>
 

@@ -50,12 +50,31 @@ export interface Project {
   tags: string[];
 }
 
+export interface BehavioralStrength {
+  rank: number;
+  title: string;
+  description: string;
+}
+
+export interface BehavioralTrait {
+  title: string;
+  description: string;
+  isSeniorComposite?: boolean;
+}
+
+export interface BehavioralProfile {
+  signals: string[];
+  topStrengths: BehavioralStrength[];
+  traits: BehavioralTrait[];
+}
+
 export interface ResumeData {
   nav: NavItem[];
   about: About;
   experience: Experience[];
   education: Education[];
   skills: SkillGroup[];
+  behavioralProfile: BehavioralProfile;
   certifications: Certification[];
   recommendations: Recommendation[];
   projects: Project[];

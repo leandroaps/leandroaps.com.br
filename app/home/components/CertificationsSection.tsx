@@ -7,7 +7,7 @@ export function CertificationsSection({ certifications }: { certifications: Cert
     <section id="certifications" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="05" label="Credentials" />
+          <SectionLabel n="06" label="Credentials" />
           <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Certifications</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -7,7 +7,7 @@ export function RecommendationsSection({ recommendations }: { recommendations: R
     <section id="recommendations" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="07" label="Testimonials" />
+          <SectionLabel n="08" label="Testimonials" />
           <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">Recommendations</h2>
           <p className="text-[#7B7B7B] text-base mb-12">
             View colleague and manager recommendations on{" "}
