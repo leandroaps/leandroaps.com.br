@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import type { NavItem } from "@/home/types";
+import type { LanguageSwitch, NavItem } from "@/home/types";
 import { NavBar } from "./NavBar";
 
 vi.mock("../hooks", () => ({
@@ -18,14 +18,20 @@ const navItems: NavItem[] = [
   { label: "Experience", href: "#experience" },
 ];
 
+const languageSwitch: LanguageSwitch = {
+  label: "PT-BR",
+  href: "/pt-br",
+  ariaLabel: "Ver versão em português",
+};
+
 describe("NavBar", () => {
   it("renders the brand name", () => {
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
     expect(screen.getByText("Leandro Siqueira")).toBeInTheDocument();
   });
 
   it("renders all nav items in desktop nav", () => {
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
     const links = screen.getAllByRole("link", { name: "About Me" });
     expect(links.length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole("link", { name: "Skills" }).length).toBeGreaterThanOrEqual(1);
@@ -33,19 +39,19 @@ describe("NavBar", () => {
   });
 
   it("renders the mobile menu toggle button", () => {
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
     expect(screen.getByRole("button", { name: "Toggle menu" })).toBeInTheDocument();
   });
 
   it("mobile menu is hidden by default", () => {
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
     // Each nav item appears once (desktop only) before the menu is opened
     expect(screen.getAllByRole("link", { name: "About Me" })).toHaveLength(1);
   });
 
   it("opens mobile menu on button click", async () => {
     const user = userEvent.setup();
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
 
     await user.click(screen.getByRole("button", { name: "Toggle menu" }));
 
@@ -56,7 +62,7 @@ describe("NavBar", () => {
 
   it("closes mobile menu on second button click", async () => {
     const user = userEvent.setup();
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
 
     const toggleBtn = screen.getByRole("button", { name: "Toggle menu" });
     await user.click(toggleBtn);
@@ -66,7 +72,7 @@ describe("NavBar", () => {
   });
 
   it("highlights the active section link", () => {
-    render(<NavBar navItems={navItems} />);
+    render(<NavBar navItems={navItems} languageSwitch={languageSwitch} />);
     const aboutLinks = screen.getAllByRole("link", { name: "About Me" });
     // The desktop link gets the active class
     const activeLink = aboutLinks.find((l) => l.classList.contains("is-active"));

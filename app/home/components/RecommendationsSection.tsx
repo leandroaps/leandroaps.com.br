@@ -1,25 +1,33 @@
-import type { Recommendation } from "@/home/types";
+import type { Recommendation, RecommendationsStrings } from "@/home/types";
 import { LinkedInButton } from "./LinkedInButton.tsx";
 import { SectionLabel } from "./SectionLabel";
 
-export function RecommendationsSection({ recommendations }: { recommendations: Recommendation[] }) {
+export function RecommendationsSection({
+  recommendations,
+  strings,
+  seeOnLinkedIn,
+}: {
+  recommendations: Recommendation[];
+  strings: RecommendationsStrings;
+  seeOnLinkedIn: string;
+}) {
   return (
     <section id="recommendations" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="08" label="Testimonials" />
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">Recommendations</h2>
+          <SectionLabel n="08" label={strings.label} />
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">{strings.title}</h2>
           <p className="text-[#7B7B7B] text-base mb-12">
-            View colleague and manager recommendations on{" "}
+            {strings.introBefore}
             <a
               href="https://www.linkedin.com/in/leandroaps/details/recommendations/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#222222] font-medium underline underline-offset-2 hover:opacity-70 transition-opacity"
             >
-              my LinkedIn profile
+              {strings.introLink}
             </a>
-            .
+            {strings.introAfter}
           </p>
         </div>
 
@@ -40,10 +48,11 @@ export function RecommendationsSection({ recommendations }: { recommendations: R
                 <div className="w-10 h-10 rounded-full bg-[#F8F8F8] shrink-0 group-hover:bg-white/10 transition-colors duration-300" />
                 <div>
                   <p className="text-sm font-semibold text-[#222222] group-hover:text-white transition-colors duration-300">
-                    LinkedIn Colleague
+                    {strings.authorLabel}
                   </p>
                   <LinkedInButton
                     url={"recommendations"}
+                    label={seeOnLinkedIn}
                     className="group-hover:text-white/70 group-hover:hover:text-white"
                   />
                 </div>

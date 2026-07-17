@@ -1,0 +1,414 @@
+{
+  "ui": {
+    "hero": {
+      "location": "Campinas · São Paulo · Brasil",
+      "subtitle": [
+        "Engenheiro Front-End Sênior",
+        "React & TypeScript · Líder Técnico",
+        "Ágil · 20+ anos de experiência"
+      ]
+    },
+    "sections": {
+      "about": { "label": "Sobre", "title": "Sobre Mim" },
+      "education": { "label": "Trajetória", "title": "Formação" },
+      "experience": { "label": "Trabalho", "title": "Experiência" },
+      "skills": { "label": "Especialidades", "title": "Habilidades" },
+      "behavioralProfile": {
+        "label": "Soft Skills",
+        "title": "Perfil Comportamental",
+        "signalsLabel": "Sinais mais fortes",
+        "topStrengthsLabel": "Principais forças",
+        "topStrengthsSub": "Onde mais se destaca",
+        "traitsLabel": "Soft skills",
+        "traitsSub": "Sinais mais fortes"
+      },
+      "certifications": { "label": "Credenciais", "title": "Certificações" },
+      "projects": { "label": "Trabalhos Selecionados", "title": "Projetos" },
+      "recommendations": {
+        "label": "Depoimentos",
+        "title": "Recomendações",
+        "introBefore": "Veja recomendações de colegas e gestores no ",
+        "introLink": "meu perfil do LinkedIn",
+        "introAfter": ".",
+        "authorLabel": "Colega no LinkedIn"
+      }
+    },
+    "seeOnLinkedIn": "Ver no LinkedIn →",
+    "footer": {
+      "tagline": "Engenheiro Front-End Sênior em Campinas, São Paulo, Brasil. Construindo produtos web escaláveis com React & TypeScript.",
+      "navigationLabel": "Navegação",
+      "connectLabel": "Contato",
+      "rights": "Todos os direitos reservados.",
+      "builtWith": "Projetado e construído com ❤️ em Campinas, São Paulo, Brasil.",
+      "photoCredit": "Foto de Thom Milkovic no Unsplash"
+    },
+    "languageSwitch": {
+      "label": "EN",
+      "href": "/",
+      "ariaLabel": "View English version"
+    }
+  },
+  "nav": [
+    { "label": "Sobre Mim", "href": "#about" },
+    { "label": "Formação", "href": "#education" },
+    { "label": "Experiência", "href": "#experience" },
+    { "label": "Habilidades", "href": "#skills" },
+    { "label": "Perfil Comportamental", "href": "#behavioral-profile" },
+    { "label": "Certificações", "href": "#certifications" },
+    { "label": "Projetos", "href": "#projects" },
+    { "label": "Recomendações", "href": "#recommendations" }
+  ],
+  "about": {
+    "paragraphs": [
+      "Sou Engenheiro Front-End Sênior e Líder Técnico com mais de 20 anos de experiência construindo aplicações web escaláveis e liderando iniciativas de engenharia nos setores bancário, de saúde, telecomunicações, tecnologia e bens de consumo.",
+      "Com mais de 20 anos de experiência em desenvolvimento front-end, sou especializado na construção de aplicações web de alta performance com React e TypeScript. Entrego soluções escaláveis, em conformidade e centradas no usuário para clientes corporativos de diversos setores.",
+      "Ao longo da minha carreira, ajudei organizações a modernizar plataformas, aprimorar práticas de engenharia e entregar produtos digitais de alta qualidade usados por milhares de usuários. Minha especialidade abrange React, TypeScript, Arquitetura Front-End, Otimização de Performance, Design Systems e Entrega Ágil.",
+      "Gosto de resolver desafios técnicos complexos, seja modernizando aplicações legadas, projetando arquiteturas escaláveis, melhorando a experiência do desenvolvedor ou estabelecendo padrões de engenharia que permitem que os times avancem mais rápido e com confiança. Além do desenvolvimento hands-on, atuei como Líder Técnico e Líder Ágil, mentorando engenheiros, orientando decisões de arquitetura, promovendo a colaboração e ajudando os times a alinhar soluções técnicas aos objetivos de negócio.",
+      "Acredito que um bom software nasce da combinação de excelência técnica, aprendizado contínuo e trabalho em equipe. Ao longo dos anos, contribuí em projetos para organizações como Venturus, Itaú Unibanco, UOL, 3M, CI&T e Johnson & Johnson, em ambientes que exigiam altos níveis de escalabilidade, confiabilidade, conformidade e performance.",
+      "Sou apaixonado por construir produtos que geram valor real, ajudar times a crescer e impulsionar a melhoria contínua por meio de práticas modernas de engenharia."
+    ],
+    "stats": [
+      {
+        "stat": "20+",
+        "label": "Anos de experiência construindo aplicações web escaláveis e soluções corporativas. Minha especialidade inclui React, TypeScript, Arquitetura Front-End e Liderança Técnica."
+      },
+      {
+        "stat": "30+",
+        "label": "Projetos entregues. Além da base técnica, trago fortes habilidades de comunicação, experiência colaborando com times multidisciplinares, mentoria de desenvolvedores e gestão de stakeholders. Gosto de atuar como ponte entre negócio e tecnologia, traduzindo requisitos em soluções de valor."
+      },
+      {
+        "stat": "5+",
+        "label": "Empresas liderando transformações digitais. Ao longo da carreira, liderei times, modernizei plataformas, melhorei a performance de aplicações, mentorei engenheiros e entreguei produtos de alta qualidade para organizações globais como Venturus (Apple), Itaú Unibanco, UOL, 3M, CI&T (Johnson & Johnson) e RaiaDrogasil."
+      }
+    ]
+  },
+  "experience": [
+    {
+      "company": "Venturus",
+      "role": "Engenheiro de Software Front-End Sênior",
+      "period": "Jun 2023 – Mai 2026",
+      "location": "Campinas, SP",
+      "highlights": [
+        "Liderei a revisão de performance que melhorou a aplicação em 300%",
+        "Migrei para Vite, reduzindo o bundle a menos de 25% do tamanho original",
+        "Alcancei mais de 80% de cobertura de código após a migração para Vitest",
+        "Construí aplicações corporativas com React, TypeScript e Ant Design"
+      ],
+      "tags": ["React", "TypeScript", "Vite", "Vitest", "Ant Design"]
+    },
+    {
+      "company": "Pravaler",
+      "role": "Engenheiro de Software Front-End Sênior",
+      "period": "Mar 2023 – Jun 2023",
+      "location": "São Paulo, SP",
+      "highlights": [
+        "Resolvi problemas críticos e adicionei funcionalidades ao Portal do Aluno",
+        "Melhorei a arquitetura e a observabilidade do portal do estudante"
+      ],
+      "tags": ["React", "TypeScript", "Arquitetura"]
+    },
+    {
+      "company": "Itaú Unibanco",
+      "role": "Líder Técnico",
+      "period": "Jan 2022 – Jan 2023",
+      "location": "São Paulo, Brasil",
+      "highlights": [
+        "Liderei a Comunidade Ativos na entrega de projetos corporativos de crédito",
+        "Apliquei princípios INVEST, gerenciando escopo e entrega das histórias",
+        "Entreguei 4 grandes funcionalidades: Menu de Crédito PJ, Cadastro Positivo e mais"
+      ],
+      "tags": ["Angular", "Liderança Técnica", "Ágil", "Design System"]
+    },
+    {
+      "company": "Vitat",
+      "role": "Líder Técnico",
+      "period": "Jul 2021 – Dez 2021",
+      "location": "São Paulo",
+      "highlights": [
+        "Defini a arquitetura front-end de uma plataforma de agendamento de saúde",
+        "Facilitei cerimônias ágeis e conduzi avaliações de desempenho",
+        "Garanti a qualidade das entregas com orientação técnica hands-on"
+      ],
+      "tags": ["Arquitetura", "Ágil", "Liderança Técnica"]
+    },
+    {
+      "company": "UOL",
+      "role": "Agile Master & Engenheiro Front-End Sênior",
+      "period": "Jan 2017 – Jun 2021",
+      "location": "São Paulo, Brasil",
+      "highlights": [
+        "Contribuí no projeto de SSO, melhorando os fluxos de autenticação",
+        "Modernizei React baseado em classes para componentes funcionais + Hooks",
+        "Criei testes E2E e unitários com Cypress e Browserstack",
+        "Facilitei dailies, plannings e retrospectivas",
+        "Apoiei pipelines de CI/CD com Docker, Kubernetes e Jenkins"
+      ],
+      "tags": ["React", "Cypress", "Docker", "Kubernetes", "Agile Master"]
+    },
+    {
+      "company": "3M",
+      "role": "Líder Sênior de Projetos Digitais",
+      "period": "Out 2012 – Nov 2015",
+      "location": "Campinas, SP",
+      "highlights": [
+        "Gerenciei o portfólio de operações digitais para a América Latina",
+        "Conduzi treinamentos do IBM WCM para times regionais",
+        "Atuei como elo entre stakeholders técnicos e de negócio"
+      ],
+      "tags": ["Gestão de Projetos", "IBM WCM", "América Latina"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Fundação Getulio Vargas",
+      "degree": "MBA",
+      "field": "Tecnologia da Informação",
+      "year": "2013"
+    },
+    {
+      "institution": "Universidade Paulista",
+      "degree": "Bacharelado",
+      "field": "Comunicação Digital & Multimídia",
+      "year": "2003 – 2005"
+    },
+    {
+      "institution": "PUC Campinas",
+      "degree": "Bacharelado",
+      "field": "Engenharia da Computação",
+      "year": "1998 – 2001"
+    },
+    {
+      "institution": "Colégio Batista de Campinas",
+      "degree": "Curso Técnico",
+      "field": "Processamento de Dados",
+      "year": "1995 – 1997"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Front-End",
+      "items": [
+        "Angular",
+        "Ant Design",
+        "Bootstrap",
+        "CSS3",
+        "GraphQL",
+        "HTML5",
+        "JavaScript",
+        "jQuery",
+        "Next.js",
+        "React Query",
+        "React",
+        "Redux",
+        "Styled Components",
+        "Tailwind CSS",
+        "TypeScript",
+        "Zustand"
+      ]
+    },
+    {
+      "category": "Qualidade & Testes",
+      "items": [
+        "Acessibilidade (a11y)",
+        "Browserstack",
+        "Code Review",
+        "Cypress",
+        "Testes de Integração",
+        "Otimização de Performance",
+        "Playwright",
+        "Testes Unitários"
+      ]
+    },
+    {
+      "category": "Ferramentas & Infraestrutura",
+      "items": [
+        "AWS",
+        "Azure",
+        "CI/CD",
+        "Docker",
+        "Git",
+        "GitHub Actions",
+        "Google Cloud",
+        "Jenkins",
+        "Kubernetes",
+        "Linux",
+        "Vite",
+        "Vitest",
+        "Webpack"
+      ]
+    },
+    {
+      "category": "Agilidade & Liderança",
+      "items": [
+        "Metodologias Ágeis & Scrum",
+        "Liderança Técnica",
+        "Mentoria de Times",
+        "Documentação RDA",
+        "Liderança de Equipes",
+        "Metodologias Waterfall"
+      ]
+    },
+    {
+      "category": "Inteligência Artificial (IA)",
+      "items": [
+        "Agentes de IA",
+        "ChatGPT",
+        "Claude Code",
+        "CoPilot",
+        "Cursor",
+        "Gemini Pro",
+        "Kiro",
+        "Prompting de LLMs",
+        "Engenharia de Prompts"
+      ]
+    }
+  ],
+  "behavioralProfile": {
+    "signals": ["Naturalmente curioso", "Antecipa problemas cedo", "Comunicador async-first"],
+    "topStrengths": [
+      {
+        "rank": 1,
+        "title": "Orientação ao Cliente",
+        "description": "Mantém-se próximo do cliente, comunica-se cedo e faz com que ele se sinta ouvido."
+      },
+      {
+        "rank": 2,
+        "title": "Mentalidade de Crescimento",
+        "description": "Busca o que aprender em seguida em vez de permanecer apenas no que já domina."
+      },
+      {
+        "rank": 3,
+        "title": "Proatividade",
+        "description": "Antecipa problemas, assume o escopo e faz o trabalho avançar sem precisar de cobrança."
+      }
+    ],
+    "traits": [
+      {
+        "title": "Confiabilidade",
+        "description": "Entrega o que promete, no prazo e com qualidade consistente."
+      },
+      {
+        "title": "Comunicação",
+        "description": "Escreve com clareza, engaja stakeholders e mantém o time alinhado."
+      },
+      {
+        "title": "Comportamentos Sênior",
+        "description": "Combinação de senso de dono, curiosidade e disciplina. As características buscadas em posições sênior."
+      },
+      {
+        "title": "Adaptabilidade",
+        "description": "Ajusta-se rapidamente a feedbacks e novas restrições sem perder o ritmo."
+      },
+      {
+        "title": "Receptividade a Feedback",
+        "description": "Recebe feedback de forma construtiva e o transforma em ação."
+      },
+      {
+        "title": "Senso de Dono",
+        "description": "Trata o trabalho como seu: responsável, transparente e termina o que começa."
+      },
+      {
+        "title": "Iniciativa",
+        "description": "Identifica oportunidades e age sem esperar por direcionamento."
+      },
+      {
+        "title": "Disciplina com Prazos",
+        "description": "Gerencia os próprios prazos e trade-offs sem pressão externa."
+      },
+      {
+        "title": "Atenção à Qualidade",
+        "description": "Percebe os detalhes que separam um trabalho sólido de um trabalho descuidado."
+      },
+      {
+        "title": "Autogestão",
+        "description": "Planeja o próprio tempo, toma decisões e permanece produtivo sem supervisão."
+      },
+      {
+        "title": "Resolução de Problemas",
+        "description": "Decompõe problemas ambíguos e chega a uma solução viável."
+      },
+      {
+        "title": "Orientação ao Cliente",
+        "description": "Mantém-se próximo do cliente, comunica-se cedo e faz com que ele se sinta ouvido."
+      },
+      {
+        "title": "Mentalidade de Crescimento",
+        "description": "Busca o que aprender em seguida em vez de permanecer apenas no que já domina."
+      },
+      {
+        "title": "Proatividade",
+        "description": "Antecipa problemas, assume o escopo e faz o trabalho avançar sem precisar de cobrança."
+      },
+      {
+        "title": "Colaboração",
+        "description": "Trabalha bem com os outros, lida bem com feedback e envolve as pessoas certas."
+      }
+    ]
+  },
+  "certifications": [
+    { "name": "Tech Lead Program", "issuer": "IFTL" },
+    { "name": "Claude Code — The Practical Guide", "issuer": "Anthropic" },
+    { "name": "Enterprise Agile: Changing Your Culture", "issuer": "LinkedIn Learning" },
+    { "name": "Coding Exercises: React.js", "issuer": "LinkedIn Learning" },
+    { "name": "Managing Virtual Teams", "issuer": "LinkedIn Learning" },
+    { "name": "Building Modern Projects with React", "issuer": "LinkedIn Learning" }
+  ],
+  "recommendations": [
+    {
+      "text": "Leandro sempre foi muito disponível em ajudar, um excelente profissional, inteiramente dedicado aos projetos que está envolvido. Com grande entendimento das ferramentas utilizadas e uma capacidade extraordinária."
+    },
+    {
+      "text": "Leandro sempre foi um profissional com bastante competência e que era bastante dedicado ao seu trabalho dentro do UOL, empresa na qual trabalhamos juntos. Enquanto eu administrava a Reunião de Frontenders (um encontro quinzenal com o intuito de trocar informações da área), o Leandro sempre levantou e demonstrou conhecimento sobre pontos pertinentes. Além disso, trabalhamos juntos em um projeto de login único, no qual pudemos trocar informações ao longo do processo de cocriação. Ter um profissional como o Leandro no trabalho é certamente algo valioso, tendo em vista a dificuldade em se conseguir profissionais altamente qualificados no mercado de trabalho atualmente."
+    },
+    {
+      "text": "Very much a team player, Leandro was always dedicated and goal-focused front-end guy, yet easygoing. I feel confident he would be an asset to the lucky company that hire him."
+    },
+    {
+      "text": "I had a very positive experience working with Leandro for 3 years. Working as a technical lead, he demonstrated to be very knowledgeable in all things related to software development, specially regarding front-end / browser technologies, content servers, web design and usability, etc.. I had the opportunity to learn a lot from him about all these subjects, as he is always very up to date with the industry latest novelties. He is also a very nice person who was able to easily relate to different kinds of team member's profiles."
+    },
+    {
+      "text": "Um dos mais competentes webmasters e front-end engineers com que já pude trabalhar. Sua participação no time de desenvolvimento era fundamental com soluções criativas e inovadoras que vinham de encontro a melhor experiência possível para o usuário."
+    },
+    {
+      "text": "Leandro has been doing a good job as our front-end engineer, specially considering our legacy systems, some of which are a really tough challenge, with hairy jQuery customizations, but he has managed it alright! Also a very good-humored guy, nice to have around!"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Revisão de Performance Front-End",
+      "company": "Venturus",
+      "description": "Migração para Vite e Vitest, com adoção de configurações CSS puras, entregando um ganho de performance de 300% e redução de 75% no tamanho do bundle.",
+      "tags": ["Vite", "Vitest", "CSS", "Performance"]
+    },
+    {
+      "title": "Portal do Aluno",
+      "company": "Pravaler",
+      "description": "Melhoria de arquitetura, correção de bugs críticos e aprimoramento da observabilidade do portal utilizado por milhares de estudantes.",
+      "tags": ["React", "TypeScript", "Arquitetura"]
+    },
+    {
+      "title": "Single Sign-On (SSO)",
+      "company": "UOL",
+      "description": "Contribuição no projeto de SSO em colaboração com o time de UX, melhorando os fluxos de autenticação para milhões de usuários.",
+      "tags": ["React", "SSO", "Colaboração com UX"]
+    },
+    {
+      "title": "Plataforma Bancária Ativos",
+      "company": "Itaú Unibanco",
+      "description": "Liderança na entrega de 4 funcionalidades corporativas de crédito: Cliente sem Crédito, Menu de Crédito PJ, Cadastro Positivo e Declaração de Faturamento.",
+      "tags": ["Angular", "Liderança Técnica", "Corporativo"]
+    },
+    {
+      "title": "Plataforma de Agendamento de Saúde",
+      "company": "Vitat",
+      "description": "Definição da arquitetura front-end e dos padrões técnicos de uma plataforma de saúde usada por farmacêuticos e gerentes de loja.",
+      "tags": ["Arquitetura", "Agendamento", "Saúde"]
+    },
+    {
+      "title": "Ferramentas de Operação de Data Center",
+      "company": "UOL DIVEO",
+      "description": "Construção de dashboards interativos integrando serviços REST/JSON para controlar, monitorar e automatizar operações de infraestrutura.",
+      "tags": ["JavaScript", "jQuery", "REST", "Infraestrutura"]
+    }
+  ]
+}

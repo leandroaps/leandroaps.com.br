@@ -1,6 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import type { BehavioralProfile } from "@/home/types";
+import type { BehavioralProfile, BehavioralProfileStrings } from "@/home/types";
 import { BehavioralProfileSection } from "./BehavioralProfileSection";
+
+const strings: BehavioralProfileStrings = {
+  label: "Soft Skills",
+  title: "Behavioral Profile",
+  signalsLabel: "Your strongest signals",
+  topStrengthsLabel: "Top strengths",
+  topStrengthsSub: "Where you stand out",
+  traitsLabel: "Soft skills",
+  traitsSub: "Your strongest signals",
+};
 
 const behavioralProfile: BehavioralProfile = {
   signals: ["Naturally curious", "Surfaces issues early", "Async-first communicator"],
@@ -18,19 +28,19 @@ const behavioralProfile: BehavioralProfile = {
 
 describe("BehavioralProfileSection", () => {
   it("renders the section heading", () => {
-    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} />);
+    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} strings={strings} />);
     expect(screen.getByRole("heading", { name: "Behavioral Profile" })).toBeInTheDocument();
   });
 
   it("renders all signals", () => {
-    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} />);
+    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} strings={strings} />);
     expect(screen.getByText("Naturally curious")).toBeInTheDocument();
     expect(screen.getByText("Surfaces issues early")).toBeInTheDocument();
     expect(screen.getByText("Async-first communicator")).toBeInTheDocument();
   });
 
   it("renders top strengths with rank numbers", () => {
-    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} />);
+    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} strings={strings} />);
     expect(screen.getByText("#1")).toBeInTheDocument();
     expect(screen.getByText("#2")).toBeInTheDocument();
     expect(screen.getByText("#3")).toBeInTheDocument();
@@ -40,19 +50,19 @@ describe("BehavioralProfileSection", () => {
   });
 
   it("renders top strength descriptions", () => {
-    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} />);
+    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} strings={strings} />);
     expect(screen.getByText("Stays close to the client.")).toBeInTheDocument();
   });
 
   it("renders all traits", () => {
-    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} />);
+    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} strings={strings} />);
     expect(screen.getByText("Reliability")).toBeInTheDocument();
     expect(screen.getByText("Communication")).toBeInTheDocument();
     expect(screen.getByText("Ownership")).toBeInTheDocument();
   });
 
   it("renders trait descriptions", () => {
-    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} />);
+    render(<BehavioralProfileSection behavioralProfile={behavioralProfile} strings={strings} />);
     expect(screen.getByText("Delivers on what they say.")).toBeInTheDocument();
   });
 });

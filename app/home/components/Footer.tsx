@@ -1,22 +1,19 @@
-import type { NavItem } from "@/home/types";
-import { GitHubIcon, MediumIcon } from "../icons";
+import type { NavItem, UIStrings } from "@/home/types";
+import { GitHubIcon, LinkedInIcon, MediumIcon } from "../icons";
 
-export function Footer({ navItems }: { navItems: NavItem[] }) {
+export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UIStrings["footer"] }) {
   return (
     <footer className="bg-[#222222] text-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <h3 className="font-semibold text-lg mb-4">Leandro Aparecido de Siqueira</h3>
-            <p className="text-sm text-[#9B9B9B] leading-relaxed">
-              Senior Front-End Engineer based in Campinas, São Paulo, Brazil. Building scalable web
-              products with React &amp; TypeScript.
-            </p>
+            <p className="text-sm text-[#9B9B9B] leading-relaxed">{footer.tagline}</p>
           </div>
 
           <div>
             <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#9B9B9B] mb-4">
-              Navigation
+              {footer.navigationLabel}
             </h4>
             <ul className="space-y-2">
               {navItems.map(({ label, href }) => (
@@ -34,7 +31,7 @@ export function Footer({ navItems }: { navItems: NavItem[] }) {
 
           <div>
             <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#9B9B9B] mb-4">
-              Connect
+              {footer.connectLabel}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -50,9 +47,9 @@ export function Footer({ navItems }: { navItems: NavItem[] }) {
                   href="https://www.linkedin.com/in/leandroaps"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#9B9B9B] hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-[#9B9B9B] hover:text-white transition-colors"
                 >
-                  LinkedIn
+                  <LinkedInIcon /> LinkedIn
                 </a>
               </li>
               <li>
@@ -81,11 +78,9 @@ export function Footer({ navItems }: { navItems: NavItem[] }) {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-[#9B9B9B]">
-            © {new Date().getFullYear()} Leandro Aparecido de Siqueira. All rights reserved.
+            © {new Date().getFullYear()} Leandro Aparecido de Siqueira. {footer.rights}
           </p>
-          <p className="text-xs text-[#9B9B9B]">
-            Designed and built with ❤️ in Campinas, São Paulo, Brazil.
-          </p>
+          <p className="text-xs text-[#9B9B9B]">{footer.builtWith}</p>
           <p className="text-xs text-[#9B9B9B]">
             <a
               href="https://unsplash.com/@thommilkovic"
@@ -93,7 +88,7 @@ export function Footer({ navItems }: { navItems: NavItem[] }) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-xs text-[#9B9B9B] hover:text-white transition-colors"
             >
-              Photo by Thom Milkovic on Unsplash
+              {footer.photoCredit}
             </a>
           </p>
         </div>

@@ -1,4 +1,12 @@
-export function LinkedInButton({ url, className = "" }: { url: string; className?: string }) {
+export function LinkedInButton({
+  url,
+  label,
+  className = "",
+}: {
+  url: string;
+  label: string;
+  className?: string;
+}) {
   return (
     <a
       href={`https://www.linkedin.com/in/leandroaps/details/${url}`}
@@ -6,7 +14,7 @@ export function LinkedInButton({ url, className = "" }: { url: string; className
       rel="noopener noreferrer"
       className={`text-xs text-[#7B7B7B] hover:text-[#222222] transition-colors duration-300 ${className}`}
     >
-      See on LinkedIn →
+      {label}
     </a>
   );
 }

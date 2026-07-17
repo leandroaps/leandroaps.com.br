@@ -1,7 +1,8 @@
 import { useState } from "react";
+import type { UIStrings } from "@/home/types";
 import { ChevronDownIcon, GitHubIcon, MediumIcon } from "../icons";
 
-export function HeroSection() {
+export function HeroSection({ hero }: { hero: UIStrings["hero"] }) {
   const [photoError, setPhotoError] = useState(false);
 
   return (
@@ -32,7 +33,7 @@ export function HeroSection() {
       </div>
 
       <p className="relative z-10 text-xs font-semibold tracking-[0.2em] uppercase text-white/60 mb-4">
-        Campinas · São Paulo · Brazil
+        {hero.location}
       </p>
 
       <h1 className="relative z-10 text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
@@ -44,11 +45,12 @@ export function HeroSection() {
         style={{ borderLeftColor: "rgba(255,255,255,0.4)" }}
       >
         <p className="text-lg text-white/70 leading-relaxed">
-          Senior Front-End Engineer
-          <br />
-          React &amp; TypeScript · Technical Lead
-          <br />
-          Agile · 20+ Years of Experience
+          {hero.subtitle.map((line, i) => (
+            <span key={line}>
+              {i > 0 && <br />}
+              {line}
+            </span>
+          ))}
         </p>
       </div>
 

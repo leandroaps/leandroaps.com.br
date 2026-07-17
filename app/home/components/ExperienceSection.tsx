@@ -1,15 +1,23 @@
-import type { Experience } from "@/home/types";
+import type { Experience, SectionHeading } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
 import { Tag } from "./Tag";
 
-export function ExperienceSection({ experience }: { experience: Experience[] }) {
+export function ExperienceSection({
+  experience,
+  heading,
+  seeOnLinkedIn,
+}: {
+  experience: Experience[];
+  heading: SectionHeading;
+  seeOnLinkedIn: string;
+}) {
   return (
     <section id="experience" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="03" label="Work" />
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Experience</h2>
+          <SectionLabel n="03" label={heading.label} />
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">{heading.title}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -55,7 +63,7 @@ export function ExperienceSection({ experience }: { experience: Experience[] }) 
             </div>
           ))}
         </div>
-        <SeeOnLinkedIn url="experience" />
+        <SeeOnLinkedIn url="experience" label={seeOnLinkedIn} />
       </div>
     </section>
   );

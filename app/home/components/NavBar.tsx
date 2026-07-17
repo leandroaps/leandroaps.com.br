@@ -1,10 +1,16 @@
-import type { NavItem } from "@/home/types";
+import type { LanguageSwitch, NavItem } from "@/home/types";
 import { useState } from "react";
 import { useActiveSection, useScrolled } from "../hooks";
-import { CloseIcon, GitHubIcon, MediumIcon, MenuIcon } from "../icons";
+import { CloseIcon, GitHubIcon, LinkedInIcon, MediumIcon, MenuIcon } from "../icons";
 import { scrollToSection } from "../utils/scroll";
 
-export function NavBar({ navItems }: { navItems: NavItem[] }) {
+export function NavBar({
+  navItems,
+  languageSwitch,
+}: {
+  navItems: NavItem[];
+  languageSwitch: LanguageSwitch;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrolled = useScrolled();
   const activeSection = useActiveSection();
@@ -57,6 +63,15 @@ export function NavBar({ navItems }: { navItems: NavItem[] }) {
               <GitHubIcon />
             </a>
             <a
+              href="https://www.linkedin.com/in/leandroaps"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-[#7B7B7B] hover:text-[#222222] transition-colors"
+            >
+              <LinkedInIcon />
+            </a>
+            <a
               href="https://medium.com/@leandroaps"
               target="_blank"
               rel="noopener noreferrer"
@@ -64,6 +79,13 @@ export function NavBar({ navItems }: { navItems: NavItem[] }) {
               className="text-[#7B7B7B] hover:text-[#222222] transition-colors"
             >
               <MediumIcon />
+            </a>
+            <a
+              href={languageSwitch.href}
+              aria-label={languageSwitch.ariaLabel}
+              className="text-xs font-semibold tracking-wider text-[#7B7B7B] hover:text-[#222222] border border-[#E8E8E8] rounded-full px-3 py-1 transition-colors"
+            >
+              {languageSwitch.label}
             </a>
           </div>
         </div>
@@ -99,12 +121,27 @@ export function NavBar({ navItems }: { navItems: NavItem[] }) {
               <GitHubIcon /> GitHub
             </a>
             <a
+              href="https://www.linkedin.com/in/leandroaps"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-[#7B7B7B] hover:text-[#222222] transition-colors"
+            >
+              <LinkedInIcon /> LinkedIn
+            </a>
+            <a
               href="https://medium.com/@leandroaps"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-[#7B7B7B] hover:text-[#222222] transition-colors"
             >
               <MediumIcon /> Medium
+            </a>
+            <a
+              href={languageSwitch.href}
+              aria-label={languageSwitch.ariaLabel}
+              className="text-xs font-semibold tracking-wider text-[#7B7B7B] hover:text-[#222222] border border-[#E8E8E8] rounded-full px-3 py-1 transition-colors"
+            >
+              {languageSwitch.label}
             </a>
           </div>
         </div>

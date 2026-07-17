@@ -67,7 +67,61 @@ export interface BehavioralProfile {
   traits: BehavioralTrait[];
 }
 
+export interface SectionHeading {
+  label: string;
+  title: string;
+}
+
+export interface BehavioralProfileStrings extends SectionHeading {
+  signalsLabel: string;
+  topStrengthsLabel: string;
+  topStrengthsSub: string;
+  traitsLabel: string;
+  traitsSub: string;
+}
+
+export interface RecommendationsStrings extends SectionHeading {
+  introBefore: string;
+  introLink: string;
+  introAfter: string;
+  authorLabel: string;
+}
+
+export interface LanguageSwitch {
+  label: string;
+  href: string;
+  ariaLabel: string;
+}
+
+export interface UIStrings {
+  hero: {
+    location: string;
+    subtitle: string[];
+  };
+  sections: {
+    about: SectionHeading;
+    education: SectionHeading;
+    experience: SectionHeading;
+    skills: SectionHeading;
+    behavioralProfile: BehavioralProfileStrings;
+    certifications: SectionHeading;
+    projects: SectionHeading;
+    recommendations: RecommendationsStrings;
+  };
+  seeOnLinkedIn: string;
+  footer: {
+    tagline: string;
+    navigationLabel: string;
+    connectLabel: string;
+    rights: string;
+    builtWith: string;
+    photoCredit: string;
+  };
+  languageSwitch: LanguageSwitch;
+}
+
 export interface ResumeData {
+  ui: UIStrings;
   nav: NavItem[];
   about: About;
   experience: Experience[];

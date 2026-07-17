@@ -1,13 +1,19 @@
-import type { Project } from "@/home/types";
+import type { Project, SectionHeading } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 
-export function ProjectsSection({ projects }: { projects: Project[] }) {
+export function ProjectsSection({
+  projects,
+  heading,
+}: {
+  projects: Project[];
+  heading: SectionHeading;
+}) {
   return (
     <section id="projects" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="07" label="Selected Work" />
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Projects</h2>
+          <SectionLabel n="07" label={heading.label} />
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">{heading.title}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,10 +1,12 @@
-import type { BehavioralProfile } from "@/home/types";
+import type { BehavioralProfile, BehavioralProfileStrings } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 
 export function BehavioralProfileSection({
   behavioralProfile,
+  strings,
 }: {
   behavioralProfile: BehavioralProfile;
+  strings: BehavioralProfileStrings;
 }) {
   const { signals, topStrengths, traits } = behavioralProfile;
 
@@ -12,13 +14,13 @@ export function BehavioralProfileSection({
     <section id="behavioral-profile" className="py-24 px-6 bg-[#F8F8F8]">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="05" label="Soft Skills" />
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">Behavioral Profile</h2>
+          <SectionLabel n="05" label={strings.label} />
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">{strings.title}</h2>
         </div>
 
         <div className="animate-on-scroll mb-12">
           <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-4">
-            Your strongest signals
+            {strings.signalsLabel}
           </p>
           <div className="flex flex-wrap gap-2">
             {signals.map((signal) => (
@@ -34,9 +36,9 @@ export function BehavioralProfileSection({
 
         <div className="animate-on-scroll mb-12">
           <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-1">
-            Top strengths
+            {strings.topStrengthsLabel}
           </p>
-          <p className="text-xs text-[#7B7B7B] mb-6">Where you stand out</p>
+          <p className="text-xs text-[#7B7B7B] mb-6">{strings.topStrengthsSub}</p>
           <div className="grid md:grid-cols-3 gap-6">
             {topStrengths.map((strength, i) => (
               <div
@@ -61,9 +63,9 @@ export function BehavioralProfileSection({
         </div>
 
         <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7B7B7B] mb-1">
-          Soft skills
+          {strings.traitsLabel}
         </p>
-        <p className="text-xs text-[#7B7B7B] mb-6">Your strongest signals</p>
+        <p className="text-xs text-[#7B7B7B] mb-6">{strings.traitsSub}</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {traits.map((trait, i) => (

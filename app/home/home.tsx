@@ -14,20 +14,40 @@ import { useScrollAnimation } from "./hooks";
 
 export function Welcome({ data }: { data: ResumeData }) {
   useScrollAnimation();
+  const { ui } = data;
 
   return (
     <div className="min-h-screen bg-white text-[#222222]">
-      <NavBar navItems={data.nav} />
-      <HeroSection />
-      <AboutSection about={data.about} />
-      <EducationSection education={data.education} />
-      <ExperienceSection experience={data.experience} />
-      <SkillsSection skills={data.skills} />
-      <BehavioralProfileSection behavioralProfile={data.behavioralProfile} />
-      <CertificationsSection certifications={data.certifications} />
-      <ProjectsSection projects={data.projects} />
-      <RecommendationsSection recommendations={data.recommendations} />
-      <Footer navItems={data.nav} />
+      <NavBar navItems={data.nav} languageSwitch={ui.languageSwitch} />
+      <HeroSection hero={ui.hero} />
+      <AboutSection about={data.about} heading={ui.sections.about} />
+      <EducationSection education={data.education} heading={ui.sections.education} />
+      <ExperienceSection
+        experience={data.experience}
+        heading={ui.sections.experience}
+        seeOnLinkedIn={ui.seeOnLinkedIn}
+      />
+      <SkillsSection
+        skills={data.skills}
+        heading={ui.sections.skills}
+        seeOnLinkedIn={ui.seeOnLinkedIn}
+      />
+      <BehavioralProfileSection
+        behavioralProfile={data.behavioralProfile}
+        strings={ui.sections.behavioralProfile}
+      />
+      <CertificationsSection
+        certifications={data.certifications}
+        heading={ui.sections.certifications}
+        seeOnLinkedIn={ui.seeOnLinkedIn}
+      />
+      <ProjectsSection projects={data.projects} heading={ui.sections.projects} />
+      <RecommendationsSection
+        recommendations={data.recommendations}
+        strings={ui.sections.recommendations}
+        seeOnLinkedIn={ui.seeOnLinkedIn}
+      />
+      <Footer navItems={data.nav} footer={ui.footer} />
     </div>
   );
 }

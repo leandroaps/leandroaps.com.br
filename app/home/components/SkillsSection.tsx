@@ -1,14 +1,22 @@
-import type { SkillGroup } from "@/home/types";
+import type { SectionHeading, SkillGroup } from "@/home/types";
 import { SectionLabel } from "./SectionLabel";
 import { SeeOnLinkedIn } from "./SeeOnLinkedIn";
 
-export function SkillsSection({ skills }: { skills: SkillGroup[] }) {
+export function SkillsSection({
+  skills,
+  heading,
+  seeOnLinkedIn,
+}: {
+  skills: SkillGroup[];
+  heading: SectionHeading;
+  seeOnLinkedIn: string;
+}) {
   return (
     <section id="skills" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
-          <SectionLabel n="04" label="Expertise" />
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">Skills</h2>
+          <SectionLabel n="04" label={heading.label} />
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">{heading.title}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -34,7 +42,7 @@ export function SkillsSection({ skills }: { skills: SkillGroup[] }) {
             </div>
           ))}
         </div>
-        <SeeOnLinkedIn url="skills" />
+        <SeeOnLinkedIn url="skills" label={seeOnLinkedIn} />
       </div>
     </section>
   );
