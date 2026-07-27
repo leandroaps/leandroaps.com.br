@@ -33,8 +33,15 @@ export function NavBar({
           onClick={(e) => handleNav(e, "#hero")}
           className="text-[#222222] font-semibold text-base tracking-tight shrink-0"
         >
-          Leandro Siqueira
+          <img
+            src="/assets/leandroaps_logo_light.png"
+            alt="Leandro Siqueira"
+            className="w-10 h-10 rounded-full float-left mr-2 flex-auto"
+          />
         </a>
+        <h1 className="text-[#222222] font-semibold text-base tracking-tight shrink-0 mr-2">
+          Leandro Siqueira
+        </h1>
 
         <div className="hidden lg:flex items-center gap-7">
           {navItems.map(({ label, href }) => (
@@ -89,7 +96,6 @@ export function NavBar({
             </a>
           </div>
         </div>
-
         <button
           onClick={() => setMobileOpen((o) => !o)}
           className="lg:hidden p-2 text-[#222222]"
