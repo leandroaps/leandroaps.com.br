@@ -34,7 +34,7 @@ export function NavBar({
           className="text-[#222222] font-semibold text-base tracking-tight shrink-0"
         >
           <img
-            src="/assets/leandroaps_logo_light.png"
+            src="/public/leandroaps_logo_light.png"
             alt="Leandro Siqueira"
             className="w-10 h-10 rounded-full float-left mr-2 flex-auto"
           />
