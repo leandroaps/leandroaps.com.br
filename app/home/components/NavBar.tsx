@@ -1,8 +1,9 @@
 import type { LanguageSwitch, NavItem } from "@/home/types";
 import { useState } from "react";
-import { useActiveSection, useScrolled } from "../hooks";
+import Logo from "@assets/leandroaps_logo_light.png";
+import { useActiveSection, useScrolled } from "@hooks";
 import { CloseIcon, GitHubIcon, LinkedInIcon, MediumIcon, MenuIcon } from "../icons";
-import { scrollToSection } from "../utils/scroll";
+import { scrollToSection } from "@utils/scroll";
 
 export function NavBar({
   navItems,
@@ -34,7 +35,7 @@ export function NavBar({
           className="text-[#222222] font-semibold text-base tracking-tight shrink-0"
         >
           <img
-            src="/public/leandroaps_logo_light.png"
+            src={Logo}
             alt="Leandro Siqueira"
             className="w-10 h-10 rounded-full float-left mr-2 flex-auto"
           />

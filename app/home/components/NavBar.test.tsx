@@ -1,14 +1,14 @@
+import type { LanguageSwitch, NavItem } from "@/home/types";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import type { LanguageSwitch, NavItem } from "@/home/types";
 import { NavBar } from "./NavBar";
 
-vi.mock("../hooks", () => ({
+vi.mock("@hooks", () => ({
   useActiveSection: vi.fn(() => "about"),
   useScrolled: vi.fn(() => false),
 }));
 
-vi.mock("../utils/scroll", () => ({
+vi.mock("@utils/scroll", () => ({
   scrollToSection: vi.fn(),
 }));
 
