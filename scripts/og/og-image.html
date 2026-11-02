@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+  Template for the social sharing images (public/og-en.jpg, public/og-pt-br.jpg),
+  1200×630 as LinkedIn/Facebook/X expect. Open it as og-image.html?lang=en or
+  ?lang=pt-br in a 1200×630 viewport and take a JPEG screenshot. Expects
+  public/photo.jpg next to ../../public/. Colors are the "Noite suave" tokens.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=block"
+    />
+    <style>
+      :root {
+        --background: oklch(0.27 0.02 250);
+        --foreground: oklch(0.96 0.01 240);
+        --card: oklch(0.31 0.02 250);
+        --primary: oklch(0.84 0.11 165);
+        --muted: oklch(0.76 0.02 245);
+        --accent: oklch(0.86 0.1 85);
+        --border: oklch(0.4 0.02 250);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+      body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 64px;
+        padding: 0 72px;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: "Manrope", sans-serif;
+      }
+      .glow {
+        position: absolute;
+        right: 120px;
+        top: 40px;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: color-mix(in oklch, var(--accent) 12%, transparent);
+        filter: blur(80px);
+      }
+      .text {
+        position: relative;
+        flex: 1;
+      }
+      .eyebrow {
+        font-size: 18px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .bar {
+        width: 56px;
+        height: 3px;
+        margin: 22px 0 30px;
+        background: var(--primary);
+      }
+      h1 {
+        font-size: 76px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .role {
+        margin-top: 22px;
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+      .tags span {
+        padding: 10px 20px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--card);
+        font-size: 20px;
+        color: var(--muted);
+      }
+      .url {
+        margin-top: 40px;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .photo {
+        position: relative;
+        flex-shrink: 0;
+        width: 340px;
+        height: 425px;
+      }
+      .photo::before {
+        content: "";
+        position: absolute;
+        inset: -14px;
+        border: 1px solid var(--border);
+        border-radius: 40px;
+      }
+      .photo img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 28px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow"></div>
+    <div class="text">
+      <p class="eyebrow" data-i18n="eyebrow"></p>
+      <div class="bar"></div>
+      <h1>Leandro A. Siqueira</h1>
+      <p class="role">AI Front-End Engineer · Technical Lead</p>
+      <div class="tags">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span data-i18n="tag3"></span>
+        <span data-i18n="tag4"></span>
+      </div>
+      <p class="url">leandroaps.com.br</p>
+    </div>
+    <div class="photo"><img src="../../public/photo.jpg" alt="" /></div>
+    <script>
+      const copy = {
+        en: {
+          eyebrow: "20+ years building digital products",
+          tag3: "Front-End Architecture",
+          tag4: "AI Agents",
+        },
+        "pt-br": {
+          eyebrow: "20+ anos criando produtos digitais",
+          tag3: "Arquitetura Front-End",
+          tag4: "Agentes de IA",
+        },
+      };
+      const lang = new URLSearchParams(location.search).get("lang") === "pt-br" ? "pt-br" : "en";
+      document.documentElement.lang = lang === "pt-br" ? "pt-BR" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        el.textContent = copy[lang][el.dataset.i18n];
+      });
+    </script>
+  </body>
+</html>
