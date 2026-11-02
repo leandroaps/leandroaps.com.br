@@ -29,7 +29,7 @@ const TABLES: Record<string, string[]> = {
   projects: ["tags"],
   home_intro: [],
   side_projects: [],
-  building_items: [],
+  articles: [],
 };
 
 function shape(value: unknown): unknown {

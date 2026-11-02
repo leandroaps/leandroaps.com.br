@@ -44,17 +44,18 @@ export interface SideProject {
   domain: string;
   role: string;
   description: string;
-  /** Key of an icon in PROJECT_ICONS (app/home/icons.tsx). */
+  /** Key of an icon in CONTENT_ICONS (app/home/icons.tsx). */
   icon: string;
   tone: Tone;
-  /** Key of an image in PROJECT_LOGOS; when set, replaces the name and domain. */
-  logo: string | null;
 }
 
-export interface BuildingItem {
-  label: string;
-  icon: string;
-  tone: Tone;
+export interface Article {
+  /** Original (English) title, same in both locales. */
+  title: string;
+  description: string;
+  url: string;
+  /** Display date, already localized (e.g. "Jul 22, 2026"). */
+  published: string;
 }
 
 export interface SectionHeading {
@@ -87,8 +88,10 @@ export interface UIStrings {
     aboutTitle: string;
     projectsTitle: string;
     projectsSubtitle: string;
-    buildingTitle: string;
-    buildingSubtitle: string;
+    articlesTitle: string;
+    articlesSubtitle: string;
+    articlesAll: string;
+    articlesRead: string;
   };
   profile: {
     location: string;
@@ -108,7 +111,7 @@ export interface SiteContent {
   ui: UIStrings;
   intro: IntroColumn[];
   sideProjects: SideProject[];
-  building: BuildingItem[];
+  articles: Article[];
   about: About;
   experience: Experience[];
   education: Education[];

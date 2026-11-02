@@ -28,12 +28,13 @@ describe("HomePage", () => {
     expect(container.querySelector("section#projetos")).not.toBeNull();
   });
 
-  it("shows the name for projects without a logo and the logo image otherwise", () => {
+  it("shows each project's name and domain as text", () => {
     renderHome();
     expect(screen.getByRole("heading", { name: "GAEL" })).toBeVisible();
     expect(screen.getByText("gael.org.br")).toBeVisible();
-    expect(screen.getByRole("img", { name: "Bernardo" })).toBeInTheDocument();
-    expect(screen.queryByText("bernardo.pet")).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Bernardo" })).toBeVisible();
+    expect(screen.getByText("bernardo.pet")).toBeVisible();
+    expect(screen.queryByRole("img", { name: "Bernardo" })).not.toBeInTheDocument();
   });
 
   it("shows each project's role", () => {
@@ -42,8 +43,21 @@ describe("HomePage", () => {
     expect(screen.getByText("Founder")).toBeVisible();
   });
 
-  it("renders the in-progress chips", () => {
+  it("links each article to Medium and offers a link to all articles", () => {
     renderHome();
-    expect(screen.getByText("Novos produtos digitais")).toBeVisible();
+    expect(screen.getByRole("heading", { level: 2, name: "Artigos" })).toBeVisible();
+    expect(
+      screen.getByRole("link", { name: /Understanding the JavaScript Event Loop/ })
+    ).toHaveAttribute("href", "https://medium.com/@leandroaps/event-loop");
+    expect(screen.getByText("5 jan 2026")).toBeVisible();
+    expect(screen.getByRole("link", { name: /Ver todos no Medium/ })).toHaveAttribute(
+      "href",
+      "https://medium.com/@leandroaps"
+    );
+  });
+
+  it("no longer renders the in-progress block", () => {
+    renderHome();
+    expect(screen.queryByText("Em desenvolvimento")).not.toBeInTheDocument();
   });
 });

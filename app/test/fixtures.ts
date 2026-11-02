@@ -27,8 +27,10 @@ export const content: SiteContent = {
       aboutTitle: "Duas décadas",
       projectsTitle: "Projetos",
       projectsSubtitle: "Iniciativas",
-      buildingTitle: "Em desenvolvimento",
-      buildingSubtitle: "Novas ideias em construção.",
+      articlesTitle: "Artigos",
+      articlesSubtitle: "Escrevo no Medium.",
+      articlesAll: "Ver todos no Medium",
+      articlesRead: "Ler no Medium",
     },
     profile: {
       location: "Campinas · São Paulo · Brasil",
@@ -53,7 +55,6 @@ export const content: SiteContent = {
       description: "Educação.",
       icon: "book-open",
       tone: "primary",
-      logo: null,
     },
     {
       name: "Bernardo",
@@ -63,10 +64,16 @@ export const content: SiteContent = {
       description: "Cuidado com animais.",
       icon: "paw-print",
       tone: "accent",
-      logo: "bernardo",
     },
   ],
-  building: [{ label: "Novos produtos digitais", icon: "wrench", tone: "accent" }],
+  articles: [
+    {
+      title: "Understanding the JavaScript Event Loop",
+      description: "Como o event loop funciona.",
+      url: "https://medium.com/@leandroaps/event-loop",
+      published: "5 jan 2026",
+    },
+  ],
   about: {
     paragraphs: ["Parágrafo um.", "Parágrafo dois."],
     stats: [{ stat: "20+", label: "Anos de experiência" }],

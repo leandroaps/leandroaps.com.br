@@ -3,7 +3,7 @@
 import { neon } from "@neondatabase/serverless";
 import type {
   AboutStat,
-  BuildingItem,
+  Article,
   Education,
   Experience,
   IntroColumn,
@@ -25,13 +25,14 @@ function getSql() {
 export async function getContent(locale: Locale): Promise<SiteContent> {
   const sql = getSql();
 
-  const [ui, intro, sideProjects, building, paragraphs, stats, experience, education, skills] =
+  const [ui, intro, sideProjects, articles, paragraphs, stats, experience, education, skills] =
     await Promise.all([
       sql`SELECT strings FROM ui_strings WHERE locale = ${locale}`,
       sql`SELECT title, text, tone FROM home_intro WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT name, url, domain, role, description, icon, tone, logo
+      sql`SELECT name, url, domain, role, description, icon, tone
           FROM side_projects WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT label, icon, tone FROM building_items WHERE locale = ${locale} ORDER BY position`,
+      sql`SELECT title, description, url, published
+          FROM articles WHERE locale = ${locale} ORDER BY position`,
       sql`SELECT text FROM about_paragraphs WHERE locale = ${locale} ORDER BY position`,
       sql`SELECT stat, label FROM about_stats WHERE locale = ${locale} ORDER BY position`,
       sql`SELECT company, role, period, location, highlights, tags
@@ -49,7 +50,7 @@ export async function getContent(locale: Locale): Promise<SiteContent> {
     ui: ui[0].strings as UIStrings,
     intro: intro as IntroColumn[],
     sideProjects: sideProjects as SideProject[],
-    building: building as BuildingItem[],
+    articles: articles as Article[],
     about: {
       paragraphs: paragraphs.map((r) => r.text as string),
       stats: stats as AboutStat[],

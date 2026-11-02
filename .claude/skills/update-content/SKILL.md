@@ -1,6 +1,6 @@
 ---
 name: update-content
-description: Update site content — home intro, personal projects, in-progress items, profile (about, experience, education, skills), or any text on the site. Content lives in the Neon database; ensures the English and Portuguese locales stay in sync.
+description: Update site content — home intro, personal projects, Medium articles, profile (about, experience, education, skills), or any text on the site. Content lives in the Neon database; ensures the English and Portuguese locales stay in sync.
 ---
 
 # Update site content
@@ -12,7 +12,7 @@ All site content lives in the Neon Postgres database (`DATABASE_URL` in `.env`).
 | `en`     | English            | `/`, `/profile`           |
 | `pt-br`  | Portuguese (pt-BR) | `/pt-br`, `/pt-br/perfil` |
 
-Tables shown on the site: home — `home_intro`, `side_projects`, `building_items`; profile — `about_paragraphs`, `about_stats`, `experiences` (`tags` is not displayed), `education` (the profile shows `field`, which holds the full line), `skill_groups`. The tables `nav_items`, `behavioral_*`, `certifications`, `recommendations` and `projects` are kept in the database but no longer rendered.
+Tables shown on the site: home — `home_intro`, `side_projects`, `articles` (Medium; `title` stays in English in both locales, `published` is display text per locale); profile — `about_paragraphs`, `about_stats`, `experiences` (`tags` is not displayed), `education` (the profile shows `field`, which holds the full line), `skill_groups`. The tables `nav_items`, `behavioral_*`, `certifications`, `recommendations` and `projects` are kept in the database but no longer rendered.
 
 `position` is the 0-based display order. UI copy (headings, labels, header, footer, hero) is the `strings` JSONB column in `ui_strings`, one row per locale, shaped like `UIStrings` in `app/home/types.ts`.
 

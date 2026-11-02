@@ -22,7 +22,7 @@ Content lives in Neon (see the `update-content` skill for running SQL with `npm 
 3. **Parity check** — add the table (and its `text[]` columns) to `TABLES` in `scripts/db-check.ts`.
 4. **Content** — insert rows for **both** `en` and `pt-br` with the same positions, and add the UI strings to `ui_strings` for both locales with `jsonb_set`. Confirm the SQL with the user before writing.
 
-All user-visible strings live in the database — never hardcode display text in components. Icons referenced from the DB are keys in `CONTENT_ICONS` (`app/home/icons.tsx`); images are keys resolved in the component (see `PROJECT_LOGOS` in `HomePage.tsx`).
+All user-visible strings live in the database — never hardcode display text in components. Icons referenced from the DB are keys in `CONTENT_ICONS` (`app/home/icons.tsx`).
 
 ## 3. Component
 

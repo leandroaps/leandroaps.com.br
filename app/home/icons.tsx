@@ -1,13 +1,11 @@
-import { BookOpen, PawPrint, Sparkles, Wrench, type LucideIcon } from "lucide-react";
+import { BookOpen, PawPrint, type LucideIcon } from "lucide-react";
 
 type IconProps = { className?: string };
 
-/** Icons referenced by key from the database (side_projects.icon, building_items.icon). */
+/** Icons referenced by key from the database (side_projects.icon). */
 export const CONTENT_ICONS: Record<string, LucideIcon> = {
   "book-open": BookOpen,
   "paw-print": PawPrint,
-  sparkles: Sparkles,
-  wrench: Wrench,
 };
 
 export function GitHubIcon({ className = "h-4 w-4" }: IconProps) {

@@ -1,21 +1,17 @@
 import { Link } from "react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import bernardoLogo from "@assets/bernardo-logo.png";
 import type { SiteContent, Tone } from "@/home/types";
-import { CONTENT_ICONS } from "@/home/icons";
+import { CONTENT_ICONS, MediumIcon } from "@/home/icons";
 import { PATHS, PROJECTS_ANCHOR, type Locale } from "@/lib/routes";
-import { Eyebrow, SiteLayout } from "./SiteLayout";
+import { Eyebrow, SiteLayout, socials } from "./SiteLayout";
 
-/** Images referenced by key from side_projects.logo. */
-const PROJECT_LOGOS: Record<string, { src: string; width: number; height: number }> = {
-  bernardo: { src: bernardoLogo, width: 976, height: 220 },
-};
+const MEDIUM_URL = socials.find((s) => s.label === "Medium")!.href;
 
 const TEXT_TONE: Record<Tone, string> = { primary: "text-primary", accent: "text-accent" };
 const BG_TONE: Record<Tone, string> = { primary: "bg-primary", accent: "bg-accent" };
 
 export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }) {
-  const { ui, intro, sideProjects, building } = data;
+  const { ui, intro, sideProjects, articles } = data;
   const t = ui.home;
 
   return (
@@ -82,9 +78,8 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
         <h2 className="text-3xl font-bold">{t.projectsTitle}</h2>
         <p className="mt-2 text-muted-foreground">{t.projectsSubtitle}</p>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {sideProjects.map(({ name, url, domain, role, description, icon, tone, logo }) => {
+          {sideProjects.map(({ name, url, domain, role, description, icon, tone }) => {
             const Icon = CONTENT_ICONS[icon];
-            const image = logo ? PROJECT_LOGOS[logo] : undefined;
             return (
               <a
                 key={name}
@@ -100,20 +95,8 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
                   </span>
                 </div>
                 <div className="mt-6 flex h-14 flex-col justify-center">
-                  {image ? (
-                    <img
-                      src={image.src}
-                      alt={name}
-                      width={image.width}
-                      height={image.height}
-                      className="h-12 w-auto max-w-full self-start object-contain object-left"
-                    />
-                  ) : (
-                    <>
-                      <h3 className="text-2xl font-bold">{name}</h3>
-                      <p className={`mt-1 ${TEXT_TONE[tone]} opacity-80`}>{domain}</p>
-                    </>
-                  )}
+                  <h3 className="text-2xl font-bold">{name}</h3>
+                  <p className={`mt-1 ${TEXT_TONE[tone]} opacity-80`}>{domain}</p>
                 </div>
                 <div className={`mt-6 h-0.5 w-10 ${BG_TONE[tone]}`} />
                 <div className="mt-6 flex items-end justify-between gap-4">
@@ -130,21 +113,50 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
       </section>
 
       <section className="mx-auto mt-20 max-w-6xl border-t border-border px-6 pt-16">
-        <h2 className="text-3xl font-bold">{t.buildingTitle}</h2>
-        <p className="mt-2 text-muted-foreground">{t.buildingSubtitle}</p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          {building.map(({ label, icon, tone }) => {
-            const Icon = CONTENT_ICONS[icon];
-            return (
-              <span
-                key={label}
-                className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-6 py-4"
-              >
-                {Icon && <Icon className={`h-5 w-5 ${TEXT_TONE[tone]}`} aria-hidden="true" />}
-                {label}
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 className="text-3xl font-bold">{t.articlesTitle}</h2>
+            <p className="mt-2 max-w-2xl text-muted-foreground">{t.articlesSubtitle}</p>
+          </div>
+          <a
+            href={MEDIUM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-border px-5 py-2.5 text-sm font-medium whitespace-nowrap transition hover:border-primary md:self-auto"
+          >
+            <MediumIcon />
+            {t.articlesAll}
+            <ArrowUpRight
+              className="h-4 w-4 text-primary transition group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {articles.map(({ title, description, url, published }) => (
+            <a
+              key={url}
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-8 transition hover:-translate-y-1 hover:border-primary/50"
+            >
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                {published}
+              </p>
+              <h3 lang="en" className="mt-4 text-xl font-bold leading-snug">
+                {title}
+              </h3>
+              <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">{description}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                {t.articlesRead}
+                <ArrowUpRight
+                  className="h-4 w-4 transition group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </span>
-            );
-          })}
+            </a>
+          ))}
         </div>
       </section>
     </SiteLayout>

@@ -129,8 +129,7 @@ CREATE TABLE IF NOT EXISTS home_intro (
   PRIMARY KEY (locale, position)
 );
 
--- Personal projects (GAEL, Bernardo…). icon: key in app/home/icons.tsx;
--- logo: optional image key resolved in the component (replaces the name).
+-- Personal projects (GAEL, Bernardo…). icon: key in app/home/icons.tsx.
 CREATE TABLE IF NOT EXISTS side_projects (
   locale      text NOT NULL REFERENCES locales(code),
   position    int  NOT NULL,
@@ -141,16 +140,17 @@ CREATE TABLE IF NOT EXISTS side_projects (
   description text NOT NULL,
   icon        text NOT NULL,
   tone        text NOT NULL DEFAULT 'primary',
-  logo        text,
   PRIMARY KEY (locale, position)
 );
 
--- "In progress" chips.
-CREATE TABLE IF NOT EXISTS building_items (
-  locale   text NOT NULL REFERENCES locales(code),
-  position int  NOT NULL,
-  label    text NOT NULL,
-  icon     text NOT NULL,
-  tone     text NOT NULL DEFAULT 'primary',
+-- Medium articles. title stays in the original language (English) in both
+-- locales; published is display text (e.g. 'Jul 22, 2026' / '22 jul 2026').
+CREATE TABLE IF NOT EXISTS articles (
+  locale      text NOT NULL REFERENCES locales(code),
+  position    int  NOT NULL,
+  title       text NOT NULL,
+  description text NOT NULL,
+  url         text NOT NULL,
+  published   text NOT NULL,
   PRIMARY KEY (locale, position)
 );
