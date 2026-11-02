@@ -27,7 +27,7 @@ Notes:
 npm run dev         # Vite dev server (default http://localhost:5173)
 ```
 
-Check both locales: `/` (English) and `/pt-br` (Portuguese). For the production/Workers build:
+Check all four pages — `/` and `/profile` (English), `/pt-br` and `/pt-br/perfil` (Portuguese) — in both the dark (default) and light themes. For the production/Workers build:
 
 ```bash
 npm run build && npx wrangler dev   # serves build/client via Cloudflare Workers runtime

@@ -116,3 +116,41 @@ CREATE TABLE IF NOT EXISTS projects (
   tags        text[] NOT NULL DEFAULT '{}',
   PRIMARY KEY (locale, position)
 );
+
+-- Home page ---------------------------------------------------------------
+
+-- "A bit about me" columns. tone: 'primary' | 'accent' (accent bar color).
+CREATE TABLE IF NOT EXISTS home_intro (
+  locale   text NOT NULL REFERENCES locales(code),
+  position int  NOT NULL,
+  title    text NOT NULL,
+  text     text NOT NULL,
+  tone     text NOT NULL DEFAULT 'primary',
+  PRIMARY KEY (locale, position)
+);
+
+-- Personal projects (GAEL, Bernardo…). icon: key in app/home/icons.tsx;
+-- logo: optional image key resolved in the component (replaces the name).
+CREATE TABLE IF NOT EXISTS side_projects (
+  locale      text NOT NULL REFERENCES locales(code),
+  position    int  NOT NULL,
+  name        text NOT NULL,
+  url         text NOT NULL,
+  domain      text NOT NULL,
+  role        text NOT NULL,
+  description text NOT NULL,
+  icon        text NOT NULL,
+  tone        text NOT NULL DEFAULT 'primary',
+  logo        text,
+  PRIMARY KEY (locale, position)
+);
+
+-- "In progress" chips.
+CREATE TABLE IF NOT EXISTS building_items (
+  locale   text NOT NULL REFERENCES locales(code),
+  position int  NOT NULL,
+  label    text NOT NULL,
+  icon     text NOT NULL,
+  tone     text NOT NULL DEFAULT 'primary',
+  PRIMARY KEY (locale, position)
+);

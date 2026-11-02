@@ -1,7 +1,4 @@
-export interface NavItem {
-  label: string;
-  href: string;
-}
+export type Tone = "primary" | "accent";
 
 export interface AboutStat {
   stat: string;
@@ -25,6 +22,7 @@ export interface Experience {
 export interface Education {
   institution: string;
   degree: string;
+  /** Full line shown on the profile, e.g. "MBA em Tecnologia da Informação". */
   field: string;
   year: string;
 }
@@ -34,37 +32,29 @@ export interface SkillGroup {
   items: string[];
 }
 
-export interface Certification {
-  name: string;
-  issuer: string;
-}
-
-export interface Recommendation {
+export interface IntroColumn {
+  title: string;
   text: string;
+  tone: Tone;
 }
 
-export interface Project {
-  title: string;
-  company: string;
+export interface SideProject {
+  name: string;
+  url: string;
+  domain: string;
+  role: string;
   description: string;
-  tags: string[];
+  /** Key of an icon in PROJECT_ICONS (app/home/icons.tsx). */
+  icon: string;
+  tone: Tone;
+  /** Key of an image in PROJECT_LOGOS; when set, replaces the name and domain. */
+  logo: string | null;
 }
 
-export interface BehavioralStrength {
-  rank: number;
-  title: string;
-  description: string;
-}
-
-export interface BehavioralTrait {
-  title: string;
-  description: string;
-}
-
-export interface BehavioralProfile {
-  signals: string[];
-  topStrengths: BehavioralStrength[];
-  traits: BehavioralTrait[];
+export interface BuildingItem {
+  label: string;
+  icon: string;
+  tone: Tone;
 }
 
 export interface SectionHeading {
@@ -72,63 +62,55 @@ export interface SectionHeading {
   title: string;
 }
 
-export interface BehavioralProfileStrings extends SectionHeading {
-  signalsLabel: string;
-  topStrengthsLabel: string;
-  topStrengthsSub: string;
-  traitsLabel: string;
-  traitsSub: string;
-}
-
-export interface RecommendationsStrings extends SectionHeading {
-  introBefore: string;
-  introLink: string;
-  introAfter: string;
-  authorLabel: string;
-}
-
-export interface LanguageSwitch {
-  label: string;
-  href: string;
-  ariaLabel: string;
-}
-
 export interface UIStrings {
-  hero: {
-    location: string;
-    subtitle: string[];
-  };
-  sections: {
-    about: SectionHeading;
-    education: SectionHeading;
-    experience: SectionHeading;
-    skills: SectionHeading;
-    behavioralProfile: BehavioralProfileStrings;
-    certifications: SectionHeading;
-    projects: SectionHeading;
-    recommendations: RecommendationsStrings;
-  };
-  seeOnLinkedIn: string;
+  site: { name: string; location: string };
+  nav: { label: string; home: string; profile: string; projects: string };
+  languageSwitch: { label: string; ariaLabel: string };
+  theme: { toggle: string };
   footer: {
-    tagline: string;
-    navigationLabel: string;
-    connectLabel: string;
-    rights: string;
-    builtWith: string;
-    photoCredit: string;
+    title: string;
+    networking: string;
+    code: string;
+    reading: string;
+    copyright: string;
   };
-  languageSwitch: LanguageSwitch;
+  home: {
+    eyebrow: string;
+    name: string;
+    tagline: string;
+    bio: string;
+    ctaProjects: string;
+    ctaProfile: string;
+    photoAlt: string;
+    photoBadge: string;
+    aboutEyebrow: string;
+    aboutTitle: string;
+    projectsTitle: string;
+    projectsSubtitle: string;
+    buildingTitle: string;
+    buildingSubtitle: string;
+  };
+  profile: {
+    location: string;
+    name: string;
+    headline: string;
+    photoAlt: string;
+    sections: {
+      about: SectionHeading;
+      experience: SectionHeading;
+      education: SectionHeading;
+      skills: SectionHeading;
+    };
+  };
 }
 
-export interface ResumeData {
+export interface SiteContent {
   ui: UIStrings;
-  nav: NavItem[];
+  intro: IntroColumn[];
+  sideProjects: SideProject[];
+  building: BuildingItem[];
   about: About;
   experience: Experience[];
   education: Education[];
   skills: SkillGroup[];
-  behavioralProfile: BehavioralProfile;
-  certifications: Certification[];
-  recommendations: Recommendation[];
-  projects: Project[];
 }

@@ -20,8 +20,6 @@ export default defineConfig({
     alias: {
       "@": path.resolve(import.meta.dirname, "./app"),
       "@assets": path.resolve(import.meta.dirname, "./assets"),
-      "@hooks": path.resolve(import.meta.dirname, "./app/home/hooks"),
-      "@utils": path.resolve(import.meta.dirname, "./app/home/utils"),
     },
   },
 });
