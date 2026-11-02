@@ -18,7 +18,7 @@ Notes:
 
 - `npm run typecheck` runs `react-router typegen` first. If route imports like `./+types/home` fail to resolve, run typecheck — the generated types in `.react-router/` are stale.
 - `npm test` starts vitest in **watch mode** and never exits — always use `npm run test:run` in automation.
-- Content edits to `app/content/resume.json` or `app/content/resume.pt-br.json` are cast to `ResumeData` in the route loaders, so `tsc` validates JSON shape against `app/home/types.ts`. A typecheck failure after a content edit usually means the JSON is missing a field or one locale drifted from the other.
+- Content lives in Neon and is read by the route loaders **at build time**, so `npm run build` needs `DATABASE_URL` (from `.env`) and network access. `tsc` does not validate content shape — after content or schema changes run `npm run db:check`, which fails if `en` and `pt-br` drifted.
 - Husky + lint-staged run `eslint --fix` and `prettier --write` on commit; run `npm run format` yourself to avoid surprise diffs at commit time.
 
 ## Exercising the app

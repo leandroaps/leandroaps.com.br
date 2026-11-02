@@ -1,6 +1,5 @@
-import resumeContent from "@/content/resume.json";
 import { Welcome } from "@/home/home";
-import type { ResumeData } from "@/home/types";
+import { getResume } from "@/lib/resume.server";
 import type { Route } from "./+types/home";
 
 export function meta() {
@@ -14,8 +13,8 @@ export function meta() {
   ];
 }
 
-export function loader(): ResumeData {
-  return resumeContent as ResumeData;
+export function loader() {
+  return getResume("en");
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {

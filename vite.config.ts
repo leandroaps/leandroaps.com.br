@@ -1,7 +1,7 @@
 import path from "path";
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, type Plugin } from "vite";
+import { defineConfig, loadEnv, type Plugin } from "vite";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 // Chrome DevTools probes this URL on localhost; answer it before it reaches
@@ -18,24 +18,30 @@ function chromeDevtoolsWorkspace(): Plugin {
   };
 }
 
-export default defineConfig({
-  plugins: [
-    chromeDevtoolsWorkspace(),
-    tailwindcss(),
-    reactRouter(),
-    ViteImageOptimizer({
-      jpg: { quality: 80 },
-      jpeg: { quality: 80 },
-      webp: { quality: 80 },
-      png: { quality: 80 },
-    }),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./app"),
-      "@assets": path.resolve(__dirname, "./assets"),
-      "@hooks": path.resolve(__dirname, "./app/home/hooks"),
-      "@utils": path.resolve(__dirname, "./app/home/utils"),
+export default defineConfig(({ mode }) => {
+  // Expose non-VITE_ vars from .env (e.g. DATABASE_URL) to server-only code such as
+  // route loaders, which run at build time for prerendering. Never reaches the client.
+  process.env.DATABASE_URL ??= loadEnv(mode, process.cwd(), "").DATABASE_URL;
+
+  return {
+    plugins: [
+      chromeDevtoolsWorkspace(),
+      tailwindcss(),
+      reactRouter(),
+      ViteImageOptimizer({
+        jpg: { quality: 80 },
+        jpeg: { quality: 80 },
+        webp: { quality: 80 },
+        png: { quality: 80 },
+      }),
+    ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./app"),
+        "@assets": path.resolve(__dirname, "./assets"),
+        "@hooks": path.resolve(__dirname, "./app/home/hooks"),
+        "@utils": path.resolve(__dirname, "./app/home/utils"),
+      },
     },
-  },
+  };
 });
