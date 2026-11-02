@@ -2,6 +2,7 @@ import {
   BookOpen,
   Building2,
   CalendarCheck,
+  Factory,
   Gauge,
   HeartPulse,
   KeyRound,
@@ -26,6 +27,7 @@ export const CONTENT_ICONS: Record<string, LucideIcon> = {
   landmark: Landmark,
   "calendar-check": CalendarCheck,
   server: Server,
+  factory: Factory,
 };
 
 export function GitHubIcon({ className = "h-4 w-4" }: IconProps) {
