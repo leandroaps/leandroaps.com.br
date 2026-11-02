@@ -53,12 +53,18 @@ export interface SideProject {
 }
 
 export interface Article {
-  /** Original (English) title, same in both locales. */
+  /** Original title (in the article's language), same in both locales. */
   title: string;
   description: string;
   url: string;
   /** Display date, already localized (e.g. "Jul 22, 2026"). */
   published: string;
+  /** Rendered as a full-width highlight above the other articles. */
+  featured: boolean;
+  /** Optional pill on the card, e.g. "Série · 5 artigos". */
+  badge: string | null;
+  /** BCP 47 tag of the article's language (lang attribute on the title). */
+  language: string;
 }
 
 export interface BehavioralStrength {

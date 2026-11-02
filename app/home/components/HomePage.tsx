@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import type { SideProject, SiteContent, Tone } from "@/home/types";
+import type { Article, SideProject, SiteContent, Tone } from "@/home/types";
 import { CONTENT_ICONS, MediumIcon } from "@/home/icons";
 import { PATHS, PROJECTS_ANCHOR, type Locale } from "@/lib/routes";
 import { Eyebrow, SiteLayout, socials } from "./SiteLayout";
@@ -56,8 +56,56 @@ function ProjectCard({ project }: { project: SideProject }) {
   );
 }
 
+function ArticleCard({
+  article,
+  readLabel,
+  featured = false,
+}: {
+  article: Article;
+  readLabel: string;
+  featured?: boolean;
+}) {
+  const { title, description, url, published, badge, language } = article;
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={`group flex flex-col rounded-2xl border bg-card transition hover:-translate-y-1 hover:border-primary/50 ${
+        featured ? "mt-10 border-primary/40 p-8 md:p-10" : "border-border p-8"
+      }`}
+    >
+      <div className="flex flex-wrap items-center gap-3">
+        {badge && (
+          <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+            {badge}
+          </span>
+        )}
+        <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{published}</p>
+      </div>
+      <h3
+        lang={language}
+        className={`mt-4 font-bold leading-snug ${featured ? "max-w-3xl text-2xl md:text-3xl" : "text-xl"}`}
+      >
+        {title}
+      </h3>
+      <p
+        className={`mt-3 flex-1 leading-relaxed text-muted-foreground ${featured ? "max-w-3xl md:text-lg" : ""}`}
+      >
+        {description}
+      </p>
+      <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+        {readLabel}
+        <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+      </span>
+    </a>
+  );
+}
+
 export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }) {
   const { ui, intro, sideProjects, articles } = data;
+  const featuredArticles = articles.filter((a) => a.featured);
+  const regularArticles = articles.filter((a) => !a.featured);
   const t = ui.home;
 
   return (
@@ -150,30 +198,12 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
             />
           </a>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {articles.map(({ title, description, url, published }) => (
-            <a
-              key={url}
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex flex-col rounded-2xl border border-border bg-card p-8 transition hover:-translate-y-1 hover:border-primary/50"
-            >
-              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                {published}
-              </p>
-              <h3 lang="en" className="mt-4 text-xl font-bold leading-snug">
-                {title}
-              </h3>
-              <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">{description}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
-                {t.articlesRead}
-                <ArrowUpRight
-                  className="h-4 w-4 transition group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </span>
-            </a>
+        {featuredArticles.map((article) => (
+          <ArticleCard key={article.url} article={article} readLabel={t.articlesRead} featured />
+        ))}
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {regularArticles.map((article) => (
+            <ArticleCard key={article.url} article={article} readLabel={t.articlesRead} />
           ))}
         </div>
       </section>
