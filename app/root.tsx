@@ -10,7 +10,7 @@ import {
 
 import type { Route } from "./+types/root";
 import { PATHS, routeFromPath } from "./lib/routes";
-import { absoluteUrl, OG_IMAGE, SEO } from "./lib/seo";
+import { absoluteUrl, KEYWORDS, OG_IMAGE, OG_IMAGE_SIZE, personJsonLd, SEO } from "./lib/seo";
 import { THEME_INIT_SCRIPT } from "./lib/theme";
 import "./app.css";
 
@@ -34,6 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const seo = SEO[locale][page];
   const url = absoluteUrl(locale, page);
   const lang = locale === "pt-br" ? "pt-BR" : "en";
+  const image = OG_IMAGE[locale];
 
   return (
     // data-theme is set by THEME_INIT_SCRIPT before hydration
@@ -46,26 +47,41 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {/* eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
 
-        {/* Static OG/Twitter tags — rendered at build time so crawlers see them without JS */}
+        {/* Static SEO/OG/Twitter tags — rendered at build time so crawlers see them without JS */}
         <meta name="author" content="Leandro A. Siqueira" />
+        <meta name="keywords" content={KEYWORDS[locale].join(", ")} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="theme-color" content="#232a33" />
+        <link rel="canonical" href={url} />
         <meta property="og:type" content={page === "profile" ? "profile" : "website"} />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={seo.ogTitle} />
         <meta property="og:description" content={seo.ogDescription} />
-        <meta property="og:image" content={OG_IMAGE.url} />
-        <meta property="og:image:width" content={String(OG_IMAGE.width)} />
-        <meta property="og:image:height" content={String(OG_IMAGE.height)} />
+        <meta property="og:image" content={image.url} />
+        <meta property="og:image:secure_url" content={image.url} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content={String(OG_IMAGE_SIZE.width)} />
+        <meta property="og:image:height" content={String(OG_IMAGE_SIZE.height)} />
+        <meta property="og:image:alt" content={image.alt} />
         <meta property="og:locale" content={locale === "pt-br" ? "pt_BR" : "en_US"} />
+        <meta property="og:locale:alternate" content={locale === "pt-br" ? "en_US" : "pt_BR"} />
         <meta property="og:site_name" content="Leandro A. Siqueira" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={url} />
         <meta name="twitter:title" content={seo.ogTitle} />
         <meta name="twitter:description" content={seo.ogDescription} />
-        <meta name="twitter:image" content={OG_IMAGE.url} />
+        <meta name="twitter:image" content={image.url} />
+        <meta name="twitter:image:alt" content={image.alt} />
 
         <link rel="alternate" hrefLang="en" href={absoluteUrl("en", page)} />
         <link rel="alternate" hrefLang="pt-BR" href={absoluteUrl("pt-br", page)} />
         <link rel="alternate" hrefLang="x-default" href={absoluteUrl("en", page)} />
+
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml -- static data built from constants
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(locale)) }}
+        />
 
         <Meta />
         <Links />
