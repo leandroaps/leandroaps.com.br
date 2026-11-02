@@ -15,7 +15,10 @@
     "prepare": "husky",
     "test": "vitest",
     "test:run": "vitest run",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "db:migrate": "node scripts/db-migrate.ts",
+    "db:sql": "node scripts/db-sql.ts",
+    "db:check": "node scripts/db-check.ts"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -25,6 +28,7 @@
     "*.{js,json,css,md}": "prettier --write"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.2.0",
     "@react-router/node": "8.2.0",
     "@react-router/serve": "8.2.0",
     "isbot": "^5.2.1",
