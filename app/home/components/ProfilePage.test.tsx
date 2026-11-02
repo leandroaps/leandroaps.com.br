@@ -54,6 +54,11 @@ describe("ProfilePage", () => {
     );
   });
 
+  it("hides the separator when an experience has no location", () => {
+    expect(screen.getByText("2010 – 2012")).toBeVisible();
+    expect(screen.queryByText(/2010 – 2012 ·/)).not.toBeInTheDocument();
+  });
+
   it("renders content from every table", () => {
     expect(screen.getByText("Parágrafo dois.")).toBeVisible();
     expect(screen.getByText("20+")).toBeVisible();

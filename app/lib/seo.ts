@@ -18,7 +18,7 @@ export const SEO: Record<Locale, Record<Page, PageSeo>> = {
     home: {
       title: "Leandro A. Siqueira — Technology, education and purpose-driven projects",
       description:
-        "Senior front-end engineer and technical lead. Explore the GAEL and Bernardo projects and what's in progress.",
+        "Front-end engineer and technical lead with 20+ years of experience. Explore my projects, articles and career.",
       ogTitle: "Leandro A. Siqueira",
       ogDescription: "Technology, education and purpose-driven projects.",
     },
@@ -35,7 +35,7 @@ export const SEO: Record<Locale, Record<Page, PageSeo>> = {
     home: {
       title: "Leandro A. Siqueira — Tecnologia, educação e projetos com propósito",
       description:
-        "Engenheiro front-end sênior e líder técnico. Conheça os projetos GAEL, Bernardo e o que está em desenvolvimento.",
+        "Engenheiro front-end e líder técnico com mais de 20 anos de experiência. Conheça meus projetos, artigos e trajetória.",
       ogTitle: "Leandro A. Siqueira",
       ogDescription: "Tecnologia, educação e projetos com propósito.",
     },

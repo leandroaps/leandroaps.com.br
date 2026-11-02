@@ -87,7 +87,7 @@ export function ProfilePage({ data, locale }: { data: SiteContent; locale: Local
               <h3 className="text-xl font-bold">{job.company}</h3>
               <p className="text-primary">{job.role}</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                {job.period} · {job.location}
+                {[job.period, job.location].filter(Boolean).join(" · ")}
               </p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 {job.highlights.map((h) => (

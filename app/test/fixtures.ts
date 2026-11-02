@@ -111,6 +111,14 @@ export const content: SiteContent = {
       highlights: ["Performance 300%"],
       tags: ["React"],
     },
+    {
+      company: "UOL DIVEO",
+      role: "Front-End Engineer",
+      period: "2010 – 2012",
+      location: "",
+      highlights: ["Dashboards"],
+      tags: [],
+    },
   ],
   education: [
     {
