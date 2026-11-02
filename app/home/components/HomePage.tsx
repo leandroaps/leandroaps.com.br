@@ -77,7 +77,7 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
       >
         <h2 className="text-3xl font-bold">{t.projectsTitle}</h2>
         <p className="mt-2 text-muted-foreground">{t.projectsSubtitle}</p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {sideProjects.map(({ name, url, domain, role, description, icon, tone }) => {
             const Icon = CONTENT_ICONS[icon];
             return (
@@ -94,7 +94,7 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
                     {role}
                   </span>
                 </div>
-                <div className="mt-6 flex h-14 flex-col justify-center">
+                <div className="mt-6 flex min-h-14 flex-col justify-center">
                   <h3 className="text-2xl font-bold">{name}</h3>
                   <p className={`mt-1 ${TEXT_TONE[tone]} opacity-80`}>{domain}</p>
                 </div>

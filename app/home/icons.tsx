@@ -1,4 +1,12 @@
-import { BookOpen, PawPrint, type LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  Building2,
+  HeartPulse,
+  KeyRound,
+  PawPrint,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 
 type IconProps = { className?: string };
 
@@ -6,6 +14,10 @@ type IconProps = { className?: string };
 export const CONTENT_ICONS: Record<string, LucideIcon> = {
   "book-open": BookOpen,
   "paw-print": PawPrint,
+  "heart-pulse": HeartPulse,
+  "key-round": KeyRound,
+  building: Building2,
+  "shield-check": ShieldCheck,
 };
 
 export function GitHubIcon({ className = "h-4 w-4" }: IconProps) {
