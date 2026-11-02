@@ -17,7 +17,7 @@ export function Welcome({ data }: { data: ResumeData }) {
   const { ui } = data;
 
   return (
-    <div className="min-h-screen bg-white text-[#222222]">
+    <div className="min-h-screen bg-background text-foreground">
       <NavBar navItems={data.nav} languageSwitch={ui.languageSwitch} />
       <HeroSection hero={ui.hero} />
       <AboutSection about={data.about} heading={ui.sections.about} />

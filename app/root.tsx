@@ -21,7 +21,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap",
   },
 ];
 
@@ -94,26 +94,62 @@ export default function App() {
   return <Outlet />;
 }
 
+// Copy lives here, not in the database: the error screen must render even when
+// the loader (and therefore the DB content) failed.
+const ERROR_COPY = {
+  en: {
+    title: "Something went wrong",
+    details: "An unexpected error occurred.",
+    notFoundTitle: "Page not found",
+    notFoundDetails: "The page you are looking for does not exist.",
+    home: "Go to home page",
+    homeHref: "/",
+  },
+  "pt-BR": {
+    title: "Algo deu errado",
+    details: "Ocorreu um erro inesperado.",
+    notFoundTitle: "Página não encontrada",
+    notFoundDetails: "A página que você procura não existe.",
+    home: "Voltar para o início",
+    homeHref: "/pt-br",
+  },
+} as const;
+
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  const { pathname } = useLocation();
+  const copy = ERROR_COPY[pathname.startsWith("/pt-br") ? "pt-BR" : "en"];
+
+  let code: string | undefined;
+  let title: string = copy.title;
+  let details: string = copy.details;
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404 ? "The requested page could not be found." : error.statusText || details;
+    code = String(error.status);
+    if (error.status === 404) {
+      title = copy.notFoundTitle;
+      details = copy.notFoundDetails;
+    } else {
+      details = error.statusText || details;
+    }
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
     stack = error.stack;
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="min-h-screen flex flex-col items-center justify-center gap-4 px-6 text-center bg-background text-foreground">
+      {code && <p className="text-xs font-semibold tracking-[0.2em] text-primary">{code}</p>}
+      <h1 className="text-3xl lg:text-4xl font-bold">{title}</h1>
+      <p className="text-muted-foreground max-w-md">{details}</p>
+      <a
+        href={copy.homeHref}
+        className="mt-4 inline-flex items-center px-6 py-3 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-primary/90 transition-colors"
+      >
+        {copy.home}
+      </a>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="w-full max-w-4xl mt-6 p-4 overflow-x-auto text-left text-xs bg-card border border-border rounded-2xl">
           <code>{stack}</code>
         </pre>
       )}

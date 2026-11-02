@@ -12,7 +12,7 @@ export function LinkedInButton({
       href={`https://www.linkedin.com/in/leandroaps/details/${url}`}
       target="_blank"
       rel="noopener noreferrer"
-      className={`text-xs text-[#7B7B7B] hover:text-[#222222] transition-colors duration-300 ${className}`}
+      className={`text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 ${className}`}
     >
       {label}
     </a>

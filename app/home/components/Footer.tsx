@@ -1,18 +1,21 @@
 import type { NavItem, UIStrings } from "@/home/types";
 import { GitHubIcon, LinkedInIcon, MediumIcon } from "../icons";
 
+// Evaluated once at module load (build time when prerendering), keeping render pure.
+const CURRENT_YEAR = new Date().getFullYear();
+
 export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UIStrings["footer"] }) {
   return (
-    <footer className="bg-[#222222] text-white py-16 px-6">
+    <footer className="bg-footer text-footer-foreground py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <h3 className="font-semibold text-lg mb-4">Leandro Aparecido de Siqueira</h3>
-            <p className="text-sm text-[#9B9B9B] leading-relaxed">{footer.tagline}</p>
+            <p className="text-sm text-footer-muted leading-relaxed">{footer.tagline}</p>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#9B9B9B] mb-4">
+            <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-footer-muted mb-4">
               {footer.navigationLabel}
             </h4>
             <ul className="space-y-2">
@@ -20,7 +23,7 @@ export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UISt
                 <li key={href}>
                   <a
                     href={href}
-                    className="text-sm text-[#9B9B9B] hover:text-white transition-colors"
+                    className="text-sm text-footer-muted hover:text-footer-foreground transition-colors"
                   >
                     {label}
                   </a>
@@ -30,14 +33,14 @@ export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UISt
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#9B9B9B] mb-4">
+            <h4 className="text-xs font-semibold tracking-[0.15em] uppercase text-footer-muted mb-4">
               {footer.connectLabel}
             </h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:leandroaps@gmail.com"
-                  className="text-sm text-[#9B9B9B] hover:text-white transition-colors"
+                  className="text-sm text-footer-muted hover:text-footer-foreground transition-colors"
                 >
                   leandroaps@gmail.com
                 </a>
@@ -47,7 +50,7 @@ export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UISt
                   href="https://www.linkedin.com/in/leandroaps"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-[#9B9B9B] hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-footer-muted hover:text-footer-foreground transition-colors"
                 >
                   <LinkedInIcon /> LinkedIn
                 </a>
@@ -57,7 +60,7 @@ export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UISt
                   href="https://github.com/leandroaps"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-[#9B9B9B] hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-footer-muted hover:text-footer-foreground transition-colors"
                 >
                   <GitHubIcon /> GitHub
                 </a>
@@ -67,7 +70,7 @@ export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UISt
                   href="https://medium.com/@leandroaps"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-[#9B9B9B] hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-footer-muted hover:text-footer-foreground transition-colors"
                 >
                   <MediumIcon /> Medium
                 </a>
@@ -76,17 +79,17 @@ export function Footer({ navItems, footer }: { navItems: NavItem[]; footer: UISt
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-[#9B9B9B]">
-            © {new Date().getFullYear()} Leandro Aparecido de Siqueira. {footer.rights}
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-footer-muted">
+            © {CURRENT_YEAR} Leandro Aparecido de Siqueira. {footer.rights}
           </p>
-          <p className="text-xs text-[#9B9B9B]">{footer.builtWith}</p>
-          <p className="text-xs text-[#9B9B9B]">
+          <p className="text-xs text-footer-muted">{footer.builtWith}</p>
+          <p className="text-xs text-footer-muted">
             <a
               href="https://unsplash.com/@thommilkovic"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs text-[#9B9B9B] hover:text-white transition-colors"
+              className="flex items-center gap-2 text-xs text-footer-muted hover:text-footer-foreground transition-colors"
             >
               {footer.photoCredit}
             </a>

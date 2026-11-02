@@ -12,11 +12,11 @@ export function SkillsSection({
   seeOnLinkedIn: string;
 }) {
   return (
-    <section id="skills" className="py-24 px-6 bg-white">
+    <section id="skills" className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="animate-on-scroll">
           <SectionLabel n="04" label={heading.label} />
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-12">{heading.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-12">{heading.title}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -26,14 +26,14 @@ export function SkillsSection({
               className="animate-on-scroll"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-[#222222] mb-4 pb-3 border-b border-[#F8F8F8]">
+              <h3 className="text-xs font-semibold tracking-[0.15em] uppercase text-foreground mb-4 pb-3 border-b border-border">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-block px-3 py-1.5 bg-[#F8F8F8] text-[#222222] text-sm rounded-lg font-medium cursor-default hover:bg-[#222222] hover:text-white transition-colors duration-300"
+                    className="inline-block px-3 py-1.5 bg-card text-foreground text-sm rounded-lg font-medium cursor-default hover:text-primary transition-colors duration-300"
                   >
                     {skill}
                   </span>

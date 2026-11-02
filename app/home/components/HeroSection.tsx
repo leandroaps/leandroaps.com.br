@@ -8,16 +8,16 @@ export function HeroSection({ hero }: { hero: UIStrings["hero"] }) {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center min-h-screen pt-20 px-6 bg-cover bg-center bg-no-repeat text-center"
+      className="relative flex flex-col items-center justify-center min-h-screen pt-28 pb-28 px-6 bg-cover bg-center bg-no-repeat text-center"
       style={{
         backgroundImage: "url('/thom-milkovic-skUTVJi8-jc-unsplash.jpg')",
       }}
     >
-      <div className="absolute inset-0 bg-[#222222]/60" />
+      <div className="absolute inset-0 bg-background/70" />
 
-      <div className="relative z-10 mb-8 w-60 h-60 rounded-full overflow-hidden border-4 border-white/20 shadow-lg shrink-0">
+      <div className="relative z-10 mb-8 w-60 h-60 rounded-full overflow-hidden border-4 border-border shadow-lg shrink-0">
         {photoError ? (
-          <div className="w-full h-full flex items-center justify-center bg-[#222222] text-white text-3xl font-semibold select-none">
+          <div className="w-full h-full flex items-center justify-center bg-card text-foreground text-3xl font-semibold select-none">
             LAS
           </div>
         ) : (
@@ -32,19 +32,16 @@ export function HeroSection({ hero }: { hero: UIStrings["hero"] }) {
         )}
       </div>
 
-      <p className="relative z-10 text-xs font-semibold tracking-[0.2em] uppercase text-white/60 mb-4">
+      <p className="relative z-10 text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4">
         {hero.location}
       </p>
 
-      <h1 className="relative z-10 text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+      <h1 className="relative z-10 text-5xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
         Leandro Aparecido de Siqueira
       </h1>
 
-      <div
-        className="hero-subtitle relative z-10 text-left mb-10 max-w-sm"
-        style={{ borderLeftColor: "rgba(255,255,255,0.4)" }}
-      >
-        <p className="text-lg text-white/70 leading-relaxed">
+      <div className="hero-subtitle relative z-10 text-left mb-10 max-w-sm">
+        <p className="text-lg text-muted-foreground leading-relaxed">
           {hero.subtitle.map((line, i) => (
             <span key={line}>
               {i > 0 && <br />}
@@ -59,7 +56,7 @@ export function HeroSection({ hero }: { hero: UIStrings["hero"] }) {
           href="https://github.com/leandroaps"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#222222] text-sm font-medium rounded-full hover:bg-white/90 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium rounded-full hover:bg-primary/90 transition-colors"
         >
           <GitHubIcon /> GitHub
         </a>
@@ -67,7 +64,7 @@ export function HeroSection({ hero }: { hero: UIStrings["hero"] }) {
           href="https://www.linkedin.com/in/leandroaps"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white text-sm font-medium rounded-full hover:bg-white/10 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 border border-foreground text-foreground text-sm font-medium rounded-full hover:bg-foreground/10 transition-colors"
         >
           LinkedIn
         </a>
@@ -75,13 +72,13 @@ export function HeroSection({ hero }: { hero: UIStrings["hero"] }) {
           href="https://medium.com/@leandroaps"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white/70 text-sm font-medium rounded-full hover:bg-white/10 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 border border-border text-muted-foreground text-sm font-medium rounded-full hover:bg-foreground/10 transition-colors"
         >
           <MediumIcon /> Medium
         </a>
       </div>
 
-      <div className="scroll-caret absolute bottom-10 left-1/2 z-10 text-white/60">
+      <div className="scroll-caret absolute bottom-10 left-1/2 z-10 text-muted-foreground">
         <ChevronDownIcon />
       </div>
     </section>

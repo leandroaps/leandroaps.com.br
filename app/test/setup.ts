@@ -1,4 +1,4 @@
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";
 
 // IntersectionObserver is not available in jsdom
 class MockIntersectionObserver {
