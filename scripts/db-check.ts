@@ -27,6 +27,9 @@ const TABLES: Record<string, string[]> = {
   certifications: [],
   recommendations: [],
   projects: ["tags"],
+  home_intro: [],
+  side_projects: [],
+  articles: [],
 };
 
 function shape(value: unknown): unknown {

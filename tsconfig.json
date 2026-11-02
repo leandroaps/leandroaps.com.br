@@ -11,9 +11,7 @@
     "paths": {
       "~/*": ["./app/*"],
       "@/*": ["./app/*"],
-      "@assets/*": ["./assets/*"],
-      "@hooks": ["./app/home/hooks.ts"],
-      "@utils/*": ["./app/home/utils/*"]
+      "@assets/*": ["./assets/*"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,

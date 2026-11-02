@@ -2,5 +2,5 @@ import type { Config } from "@react-router/dev/config";
 
 export default {
   ssr: false,
-  prerender: ["/", "/pt-br"],
+  prerender: ["/", "/profile", "/pt-br", "/pt-br/perfil"],
 } satisfies Config;

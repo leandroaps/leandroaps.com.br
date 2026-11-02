@@ -1,18 +1,20 @@
 ---
 name: update-content
-description: Update resume/portfolio content — experience, skills, projects, certifications, recommendations, or any text on the site. Content lives in the Neon database; ensures the English and Portuguese locales stay in sync.
+description: Update site content — home intro, personal projects, Medium articles, profile (about, experience, education, skills), or any text on the site. Content lives in the Neon database; ensures the English and Portuguese locales stay in sync.
 ---
 
 # Update site content
 
 All site content lives in the Neon Postgres database (`DATABASE_URL` in `.env`). Schema: `db/schema.sql`. Every content table is keyed by `(locale, position)`:
 
-| `locale` | Language           | Route    |
-| -------- | ------------------ | -------- |
-| `en`     | English            | `/`      |
-| `pt-br`  | Portuguese (pt-BR) | `/pt-br` |
+| `locale` | Language           | Routes                    |
+| -------- | ------------------ | ------------------------- |
+| `en`     | English            | `/`, `/profile`           |
+| `pt-br`  | Portuguese (pt-BR) | `/pt-br`, `/pt-br/perfil` |
 
-`position` is the 0-based display order. UI copy (section headings, labels, footer, hero) is the `strings` JSONB column in `ui_strings`, one row per locale, shaped like `UIStrings` in `app/home/types.ts`.
+Tables shown on the site: home — `home_intro`, `side_projects` (`url` and `role` optional: work projects without a public link have `url` NULL and the company in `subtitle`), `articles` (Medium; `title` stays in English in both locales, `published` is display text per locale); profile — `about_paragraphs`, `about_stats`, `experiences` (`tags` is not displayed), `education` (the profile shows `field`, which holds the full line), `skill_groups`, `behavioral_signals`, `behavioral_strengths`, `behavioral_traits`, `recommendations` (original text, identical in both locales). The tables `nav_items`, `certifications` and `projects` are kept in the database but no longer rendered.
+
+`position` is the 0-based display order. UI copy (headings, labels, header, footer, hero) is the `strings` JSONB column in `ui_strings`, one row per locale, shaped like `UIStrings` in `app/home/types.ts`.
 
 ## Running SQL
 
@@ -23,7 +25,7 @@ npm run db:sql -- "SELECT position, name, issuer FROM certifications WHERE local
 npm run db:sql -- -f /path/to/changes.sql   # for multi-statement edits
 ```
 
-**Always read the current rows before changing them**, and wrap edits in `BEGIN; ... COMMIT;` so both locales change together or not at all. Show the user the SQL (or a summary of it) before running writes — this is the live content store and there is no JSON backup anymore.
+**Always read the current rows before changing them**, and wrap edits in `BEGIN; ... COMMIT;` so both locales change together or not at all. Show the user the SQL (or a summary of it) before running writes — this is the live content store. Snapshots of earlier content live in `db/backup/`.
 
 ## Common edits
 
@@ -59,4 +61,4 @@ npm run db:check   # fails if en and pt-br drifted (row positions, array lengths
 npm run build      # loaders read the DB at build time — confirms the pages render
 ```
 
-Then check both `/` and `/pt-br` (`npm run dev`). DB changes reach the live site only after a rebuild + deploy — remind the user.
+Then check the affected pages in both locales (`/`, `/profile`, `/pt-br`, `/pt-br/perfil` with `npm run dev`). DB changes reach the live site only after a rebuild + deploy — remind the user.

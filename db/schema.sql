@@ -116,3 +116,44 @@ CREATE TABLE IF NOT EXISTS projects (
   tags        text[] NOT NULL DEFAULT '{}',
   PRIMARY KEY (locale, position)
 );
+
+-- Home page ---------------------------------------------------------------
+
+-- "A bit about me" columns. tone: 'primary' | 'accent' (accent bar color).
+CREATE TABLE IF NOT EXISTS home_intro (
+  locale   text NOT NULL REFERENCES locales(code),
+  position int  NOT NULL,
+  title    text NOT NULL,
+  text     text NOT NULL,
+  tone     text NOT NULL DEFAULT 'primary',
+  PRIMARY KEY (locale, position)
+);
+
+-- Home "Projects" cards. icon: key in app/home/icons.tsx. Linked projects
+-- (GAEL, Bernardo…) have a url and show the domain as subtitle; work projects
+-- without a public URL have url NULL and show the company as subtitle.
+-- role is optional (no badge when NULL).
+CREATE TABLE IF NOT EXISTS side_projects (
+  locale      text NOT NULL REFERENCES locales(code),
+  position    int  NOT NULL,
+  name        text NOT NULL,
+  url         text,
+  subtitle    text NOT NULL,
+  role        text,
+  description text NOT NULL,
+  icon        text NOT NULL,
+  tone        text NOT NULL DEFAULT 'primary',
+  PRIMARY KEY (locale, position)
+);
+
+-- Medium articles. title stays in the original language (English) in both
+-- locales; published is display text (e.g. 'Jul 22, 2026' / '22 jul 2026').
+CREATE TABLE IF NOT EXISTS articles (
+  locale      text NOT NULL REFERENCES locales(code),
+  position    int  NOT NULL,
+  title       text NOT NULL,
+  description text NOT NULL,
+  url         text NOT NULL,
+  published   text NOT NULL,
+  PRIMARY KEY (locale, position)
+);
