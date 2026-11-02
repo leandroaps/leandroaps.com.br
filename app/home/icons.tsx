@@ -4,6 +4,7 @@ import {
   CalendarCheck,
   Factory,
   Gauge,
+  GraduationCap,
   HeartPulse,
   KeyRound,
   Landmark,
@@ -28,6 +29,7 @@ export const CONTENT_ICONS: Record<string, LucideIcon> = {
   "calendar-check": CalendarCheck,
   server: Server,
   factory: Factory,
+  "graduation-cap": GraduationCap,
 };
 
 export function GitHubIcon({ className = "h-4 w-4" }: IconProps) {
