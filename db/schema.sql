@@ -129,14 +129,17 @@ CREATE TABLE IF NOT EXISTS home_intro (
   PRIMARY KEY (locale, position)
 );
 
--- Personal projects (GAEL, Bernardo…). icon: key in app/home/icons.tsx.
+-- Home "Projects" cards. icon: key in app/home/icons.tsx. Linked projects
+-- (GAEL, Bernardo…) have a url and show the domain as subtitle; work projects
+-- without a public URL have url NULL and show the company as subtitle.
+-- role is optional (no badge when NULL).
 CREATE TABLE IF NOT EXISTS side_projects (
   locale      text NOT NULL REFERENCES locales(code),
   position    int  NOT NULL,
   name        text NOT NULL,
-  url         text NOT NULL,
-  domain      text NOT NULL,
-  role        text NOT NULL,
+  url         text,
+  subtitle    text NOT NULL,
+  role        text,
   description text NOT NULL,
   icon        text NOT NULL,
   tone        text NOT NULL DEFAULT 'primary',

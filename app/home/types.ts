@@ -40,9 +40,12 @@ export interface IntroColumn {
 
 export interface SideProject {
   name: string;
-  url: string;
-  domain: string;
-  role: string;
+  /** Null for work projects without a public URL (card is not a link). */
+  url: string | null;
+  /** Domain for linked projects, company for work projects. */
+  subtitle: string;
+  /** Optional badge (e.g. "Founder"). */
+  role: string | null;
   description: string;
   /** Key of an icon in CONTENT_ICONS (app/home/icons.tsx). */
   icon: string;
@@ -56,6 +59,28 @@ export interface Article {
   url: string;
   /** Display date, already localized (e.g. "Jul 22, 2026"). */
   published: string;
+}
+
+export interface BehavioralStrength {
+  rank: number;
+  title: string;
+  description: string;
+}
+
+export interface BehavioralTrait {
+  title: string;
+  description: string;
+}
+
+export interface BehavioralProfile {
+  signals: string[];
+  topStrengths: BehavioralStrength[];
+  traits: BehavioralTrait[];
+}
+
+export interface Recommendation {
+  /** Original text, in the language the colleague wrote it (same in both locales). */
+  text: string;
 }
 
 export interface SectionHeading {
@@ -103,6 +128,21 @@ export interface UIStrings {
       experience: SectionHeading;
       education: SectionHeading;
       skills: SectionHeading;
+      behavioral: SectionHeading;
+      recommendations: SectionHeading;
+    };
+    behavioral: {
+      signalsLabel: string;
+      topStrengthsLabel: string;
+      topStrengthsSub: string;
+      traitsLabel: string;
+    };
+    recommendations: {
+      introBefore: string;
+      introLink: string;
+      introAfter: string;
+      authorLabel: string;
+      seeOnLinkedIn: string;
     };
   };
 }
@@ -116,4 +156,6 @@ export interface SiteContent {
   experience: Experience[];
   education: Education[];
   skills: SkillGroup[];
+  behavioralProfile: BehavioralProfile;
+  recommendations: Recommendation[];
 }

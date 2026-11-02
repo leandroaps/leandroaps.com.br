@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import type { SiteContent, Tone } from "@/home/types";
+import type { SideProject, SiteContent, Tone } from "@/home/types";
 import { CONTENT_ICONS, MediumIcon } from "@/home/icons";
 import { PATHS, PROJECTS_ANCHOR, type Locale } from "@/lib/routes";
 import { Eyebrow, SiteLayout, socials } from "./SiteLayout";
@@ -9,6 +9,52 @@ const MEDIUM_URL = socials.find((s) => s.label === "Medium")!.href;
 
 const TEXT_TONE: Record<Tone, string> = { primary: "text-primary", accent: "text-accent" };
 const BG_TONE: Record<Tone, string> = { primary: "bg-primary", accent: "bg-accent" };
+
+/** Linked projects render as an external link; work projects (no URL) as a plain card. */
+function ProjectCard({ project }: { project: SideProject }) {
+  const { name, url, subtitle, role, description, icon, tone } = project;
+  const Icon = CONTENT_ICONS[icon];
+  const body = (
+    <>
+      <div className="flex items-start justify-between gap-4">
+        {Icon && <Icon className={`h-10 w-10 ${TEXT_TONE[tone]}`} strokeWidth={1.5} />}
+        {role && (
+          <span className="rounded-full border border-border px-3 py-1 text-xs whitespace-nowrap text-muted-foreground">
+            {role}
+          </span>
+        )}
+      </div>
+      <div className="mt-6 flex min-h-14 flex-col justify-center">
+        <h3 className="text-2xl font-bold">{name}</h3>
+        <p className={`mt-1 ${TEXT_TONE[tone]} opacity-80`}>{subtitle}</p>
+      </div>
+      <div className={`mt-6 h-0.5 w-10 ${BG_TONE[tone]}`} />
+      <div className="mt-6 flex items-end justify-between gap-4">
+        <p className="min-h-[3rem] text-muted-foreground">{description}</p>
+        {url && (
+          <ArrowUpRight
+            className={`h-5 w-5 shrink-0 transition group-hover:translate-x-1 ${TEXT_TONE[tone]}`}
+            aria-hidden="true"
+          />
+        )}
+      </div>
+    </>
+  );
+  const card = "rounded-2xl border border-border bg-card p-8";
+
+  return url ? (
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={`group ${card} transition hover:-translate-y-1 hover:border-primary/50`}
+    >
+      {body}
+    </a>
+  ) : (
+    <article className={card}>{body}</article>
+  );
+}
 
 export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }) {
   const { ui, intro, sideProjects, articles } = data;
@@ -78,37 +124,9 @@ export function HomePage({ data, locale }: { data: SiteContent; locale: Locale }
         <h2 className="text-3xl font-bold">{t.projectsTitle}</h2>
         <p className="mt-2 text-muted-foreground">{t.projectsSubtitle}</p>
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {sideProjects.map(({ name, url, domain, role, description, icon, tone }) => {
-            const Icon = CONTENT_ICONS[icon];
-            return (
-              <a
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="group rounded-2xl border border-border bg-card p-8 transition hover:-translate-y-1 hover:border-primary/50"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  {Icon && <Icon className={`h-10 w-10 ${TEXT_TONE[tone]}`} strokeWidth={1.5} />}
-                  <span className="rounded-full border border-border px-3 py-1 text-xs whitespace-nowrap text-muted-foreground">
-                    {role}
-                  </span>
-                </div>
-                <div className="mt-6 flex min-h-14 flex-col justify-center">
-                  <h3 className="text-2xl font-bold">{name}</h3>
-                  <p className={`mt-1 ${TEXT_TONE[tone]} opacity-80`}>{domain}</p>
-                </div>
-                <div className={`mt-6 h-0.5 w-10 ${BG_TONE[tone]}`} />
-                <div className="mt-6 flex items-end justify-between gap-4">
-                  <p className="min-h-[3rem] text-muted-foreground">{description}</p>
-                  <ArrowUpRight
-                    className={`h-5 w-5 shrink-0 transition group-hover:translate-x-1 ${TEXT_TONE[tone]}`}
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            );
-          })}
+          {sideProjects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
         </div>
       </section>
 

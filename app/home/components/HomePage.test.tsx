@@ -37,6 +37,14 @@ describe("HomePage", () => {
     expect(screen.queryByRole("img", { name: "Bernardo" })).not.toBeInTheDocument();
   });
 
+  it("renders work projects without a URL as plain cards with the company", () => {
+    renderHome();
+    const heading = screen.getByRole("heading", { name: "Ferramentas de Operação de Data Center" });
+    expect(heading.closest("a")).toBeNull();
+    expect(heading.closest("article")).not.toBeNull();
+    expect(screen.getByText("UOL DIVEO")).toBeVisible();
+  });
+
   it("shows each project's role", () => {
     renderHome();
     expect(screen.getByText("Colaborador")).toBeVisible();

@@ -4,9 +4,12 @@ import { neon } from "@neondatabase/serverless";
 import type {
   AboutStat,
   Article,
+  BehavioralStrength,
+  BehavioralTrait,
   Education,
   Experience,
   IntroColumn,
+  Recommendation,
   SideProject,
   SiteContent,
   SkillGroup,
@@ -25,22 +28,40 @@ function getSql() {
 export async function getContent(locale: Locale): Promise<SiteContent> {
   const sql = getSql();
 
-  const [ui, intro, sideProjects, articles, paragraphs, stats, experience, education, skills] =
-    await Promise.all([
-      sql`SELECT strings FROM ui_strings WHERE locale = ${locale}`,
-      sql`SELECT title, text, tone FROM home_intro WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT name, url, domain, role, description, icon, tone
+  const [
+    ui,
+    intro,
+    sideProjects,
+    articles,
+    paragraphs,
+    stats,
+    experience,
+    education,
+    skills,
+    signals,
+    topStrengths,
+    traits,
+    recommendations,
+  ] = await Promise.all([
+    sql`SELECT strings FROM ui_strings WHERE locale = ${locale}`,
+    sql`SELECT title, text, tone FROM home_intro WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT name, url, subtitle, role, description, icon, tone
           FROM side_projects WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT title, description, url, published
+    sql`SELECT title, description, url, published
           FROM articles WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT text FROM about_paragraphs WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT stat, label FROM about_stats WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT company, role, period, location, highlights, tags
+    sql`SELECT text FROM about_paragraphs WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT stat, label FROM about_stats WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT company, role, period, location, highlights, tags
           FROM experiences WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT institution, degree, field, year
+    sql`SELECT institution, degree, field, year
           FROM education WHERE locale = ${locale} ORDER BY position`,
-      sql`SELECT category, items FROM skill_groups WHERE locale = ${locale} ORDER BY position`,
-    ]);
+    sql`SELECT category, items FROM skill_groups WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT text FROM behavioral_signals WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT rank, title, description
+          FROM behavioral_strengths WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT title, description FROM behavioral_traits WHERE locale = ${locale} ORDER BY position`,
+    sql`SELECT text FROM recommendations WHERE locale = ${locale} ORDER BY position`,
+  ]);
 
   if (ui.length === 0) {
     throw new Error(`No content for locale "${locale}" in the database (ui_strings is empty).`);
@@ -58,5 +79,11 @@ export async function getContent(locale: Locale): Promise<SiteContent> {
     experience: experience as Experience[],
     education: education as Education[],
     skills: skills as SkillGroup[],
+    behavioralProfile: {
+      signals: signals.map((r) => r.text as string),
+      topStrengths: topStrengths as BehavioralStrength[],
+      traits: traits as BehavioralTrait[],
+    },
+    recommendations: recommendations as Recommendation[],
   };
 }

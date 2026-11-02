@@ -1,9 +1,13 @@
 import {
   BookOpen,
   Building2,
+  CalendarCheck,
+  Gauge,
   HeartPulse,
   KeyRound,
+  Landmark,
   PawPrint,
+  Server,
   ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
@@ -18,6 +22,10 @@ export const CONTENT_ICONS: Record<string, LucideIcon> = {
   "key-round": KeyRound,
   building: Building2,
   "shield-check": ShieldCheck,
+  gauge: Gauge,
+  landmark: Landmark,
+  "calendar-check": CalendarCheck,
+  server: Server,
 };
 
 export function GitHubIcon({ className = "h-4 w-4" }: IconProps) {

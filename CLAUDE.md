@@ -24,7 +24,7 @@ The Husky pre-commit hook runs `lint-staged` (eslint --fix + prettier), then `np
 
 ## Architecture
 
-**Content-driven, two locales, one component tree.** All text on the site lives in a Neon Postgres database (`DATABASE_URL` in `.env`, see `.env.example`). Schema is `db/schema.sql`: one table per section keyed by `(locale, position)` with `locale` ∈ `en` | `pt-br`, plus `ui_strings` holding the `UIStrings` object as JSONB per locale. `app/lib/resume.server.ts` `getContent(locale)` queries the tables the site renders and assembles a `SiteContent` (`app/home/types.ts`). Some older tables (`nav_items`, `behavioral_*`, `certifications`, `recommendations`, `projects`) are kept in the DB but no longer rendered; `db/backup/` holds JSON snapshots of earlier content.
+**Content-driven, two locales, one component tree.** All text on the site lives in a Neon Postgres database (`DATABASE_URL` in `.env`, see `.env.example`). Schema is `db/schema.sql`: one table per section keyed by `(locale, position)` with `locale` ∈ `en` | `pt-br`, plus `ui_strings` holding the `UIStrings` object as JSONB per locale. `app/lib/resume.server.ts` `getContent(locale)` queries the tables the site renders and assembles a `SiteContent` (`app/home/types.ts`). Some older tables (`nav_items`, `certifications`, `projects`) are kept in the DB but no longer rendered (four rows of `projects` were copied into `side_projects`); `db/backup/` holds JSON snapshots of earlier content.
 
 ```bash
 npm run db:migrate                  # apply db/schema.sql (idempotent; does not ALTER existing tables)

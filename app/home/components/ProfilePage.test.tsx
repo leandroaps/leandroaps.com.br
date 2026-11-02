@@ -19,11 +19,39 @@ describe("ProfilePage", () => {
     expect(screen.getByText("Campinas · São Paulo · Brasil")).toBeVisible();
   });
 
-  it("renders the four numbered sections", () => {
-    for (const title of ["Sobre mim", "Experiência", "Educação", "Habilidades"]) {
+  it("renders the six numbered sections", () => {
+    for (const title of [
+      "Sobre mim",
+      "Experiência",
+      "Educação",
+      "Habilidades",
+      "Perfil comportamental",
+      "Recomendações",
+    ]) {
       expect(screen.getByRole("heading", { level: 2, name: title })).toBeVisible();
     }
     expect(screen.getByText("01 — Sobre")).toBeVisible();
+  });
+
+  it("renders the behavioral profile", () => {
+    expect(screen.getByText("Naturalmente curioso")).toBeVisible();
+    expect(screen.getByText("#1")).toBeVisible();
+    expect(screen.getByRole("heading", { name: "Orientação ao Cliente" })).toBeVisible();
+    expect(screen.getByRole("heading", { name: "Confiabilidade" })).toBeVisible();
+  });
+
+  it("renders recommendations linking to LinkedIn", () => {
+    expect(screen.getByText("Very much a team player.")).toBeVisible();
+    const links = [
+      screen.getByRole("link", { name: "meu perfil do LinkedIn" }),
+      screen.getByRole("link", { name: /Ver no LinkedIn/ }),
+    ];
+    links.forEach((a) =>
+      expect(a).toHaveAttribute(
+        "href",
+        "https://www.linkedin.com/in/leandroaps/details/recommendations/"
+      )
+    );
   });
 
   it("renders content from every table", () => {

@@ -1,7 +1,18 @@
 import type { ReactNode } from "react";
+import { ArrowUpRight, Quote } from "lucide-react";
 import type { SectionHeading, SiteContent } from "@/home/types";
 import type { Locale } from "@/lib/routes";
 import { Eyebrow, SiteLayout, socials } from "./SiteLayout";
+
+const LINKEDIN_RECOMMENDATIONS = "https://www.linkedin.com/in/leandroaps/details/recommendations/";
+
+function SubLabel({ children }: { children: ReactNode }) {
+  return (
+    <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+      {children}
+    </p>
+  );
+}
 
 function Section({ heading, children }: { heading: SectionHeading; children: ReactNode }) {
   return (
@@ -14,7 +25,7 @@ function Section({ heading, children }: { heading: SectionHeading; children: Rea
 }
 
 export function ProfilePage({ data, locale }: { data: SiteContent; locale: Locale }) {
-  const { ui, about, experience, education, skills } = data;
+  const { ui, about, experience, education, skills, behavioralProfile, recommendations } = data;
   const t = ui.profile;
 
   return (
@@ -121,6 +132,93 @@ export function ProfilePage({ data, locale }: { data: SiteContent; locale: Local
                 ))}
               </div>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section heading={t.sections.behavioral}>
+        <SubLabel>{t.behavioral.signalsLabel}</SubLabel>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {behavioralProfile.signals.map((signal) => (
+            <span
+              key={signal}
+              className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
+            >
+              {signal}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-12">
+          <SubLabel>{t.behavioral.topStrengthsLabel}</SubLabel>
+          <p className="mt-1 text-sm text-muted-foreground">{t.behavioral.topStrengthsSub}</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {behavioralProfile.topStrengths.map((s) => (
+              <div key={s.title} className="rounded-2xl border border-border bg-card p-6">
+                <p className="text-4xl font-bold text-accent">#{s.rank}</p>
+                <h3 className="mt-3 font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {s.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <SubLabel>{t.behavioral.traitsLabel}</SubLabel>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {behavioralProfile.traits.map((trait) => (
+              <div key={trait.title} className="rounded-2xl border border-border p-5">
+                <h3 className="font-semibold">{trait.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {trait.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section heading={t.sections.recommendations}>
+        <p className="-mt-4 mb-10 text-muted-foreground">
+          {t.recommendations.introBefore}
+          <a
+            href={LINKEDIN_RECOMMENDATIONS}
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
+          >
+            {t.recommendations.introLink}
+          </a>
+          {t.recommendations.introAfter}
+        </p>
+        <div className="grid gap-6 md:grid-cols-2">
+          {recommendations.map(({ text }) => (
+            <figure
+              key={text}
+              className="flex flex-col rounded-2xl border border-border bg-card p-7"
+            >
+              <Quote className="h-6 w-6 text-primary" aria-hidden="true" />
+              <blockquote className="mt-4 flex-1 leading-relaxed text-muted-foreground">
+                {text}
+              </blockquote>
+              <figcaption className="mt-6 flex items-center justify-between gap-4 border-t border-border pt-4 text-sm">
+                <span className="font-medium">{t.recommendations.authorLabel}</span>
+                <a
+                  href={LINKEDIN_RECOMMENDATIONS}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-1 whitespace-nowrap text-primary"
+                >
+                  {t.recommendations.seeOnLinkedIn}
+                  <ArrowUpRight
+                    className="h-4 w-4 transition group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </a>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </Section>
