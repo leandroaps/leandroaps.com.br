@@ -146,14 +146,20 @@ CREATE TABLE IF NOT EXISTS side_projects (
   PRIMARY KEY (locale, position)
 );
 
--- Medium articles. title stays in the original language (English) in both
--- locales; published is display text (e.g. 'Jul 22, 2026' / '22 jul 2026').
+-- Medium articles. title stays in the article's original language in both
+-- locales (language = BCP 47 tag of that language, used for the lang attribute);
+-- published is display text (e.g. 'Jul 22, 2026' / '22 jul 2026').
+-- featured rows render as a full-width highlight above the grid, with an
+-- optional badge (e.g. 'Série · 5 artigos').
 CREATE TABLE IF NOT EXISTS articles (
-  locale      text NOT NULL REFERENCES locales(code),
-  position    int  NOT NULL,
-  title       text NOT NULL,
-  description text NOT NULL,
-  url         text NOT NULL,
-  published   text NOT NULL,
+  locale      text    NOT NULL REFERENCES locales(code),
+  position    int     NOT NULL,
+  title       text    NOT NULL,
+  description text    NOT NULL,
+  url         text    NOT NULL,
+  published   text    NOT NULL,
+  featured    boolean NOT NULL DEFAULT false,
+  badge       text,
+  language    text    NOT NULL DEFAULT 'en',
   PRIMARY KEY (locale, position)
 );

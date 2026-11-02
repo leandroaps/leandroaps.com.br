@@ -47,7 +47,7 @@ export async function getContent(locale: Locale): Promise<SiteContent> {
     sql`SELECT title, text, tone FROM home_intro WHERE locale = ${locale} ORDER BY position`,
     sql`SELECT name, url, subtitle, role, description, icon, tone
           FROM side_projects WHERE locale = ${locale} ORDER BY position`,
-    sql`SELECT title, description, url, published
+    sql`SELECT title, description, url, published, featured, badge, language
           FROM articles WHERE locale = ${locale} ORDER BY position`,
     sql`SELECT text FROM about_paragraphs WHERE locale = ${locale} ORDER BY position`,
     sql`SELECT stat, label FROM about_stats WHERE locale = ${locale} ORDER BY position`,

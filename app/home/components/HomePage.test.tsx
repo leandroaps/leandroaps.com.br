@@ -64,6 +64,26 @@ describe("HomePage", () => {
     );
   });
 
+  it("highlights the featured article above the grid with its badge and language", () => {
+    renderHome();
+    const featured = screen.getByRole("link", { name: /Do Prompt ao Harness/ });
+    expect(featured).toHaveAttribute(
+      "href",
+      "https://medium.com/javascript-in-plain-english/do-prompt-ao-harness"
+    );
+    expect(screen.getByText("Série · 5 artigos")).toBeVisible();
+    expect(screen.getByRole("heading", { name: /Do Prompt ao Harness/ })).toHaveAttribute(
+      "lang",
+      "pt-BR"
+    );
+    const regular = screen.getByRole("link", { name: /Understanding the JavaScript Event Loop/ });
+    // the featured card comes first in document order
+    expect(
+      featured.compareDocumentPosition(regular) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(screen.getByRole("heading", { name: /Event Loop/ })).toHaveAttribute("lang", "en");
+  });
+
   it("no longer renders the in-progress block", () => {
     renderHome();
     expect(screen.queryByText("Em desenvolvimento")).not.toBeInTheDocument();

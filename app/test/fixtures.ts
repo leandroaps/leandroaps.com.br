@@ -92,10 +92,22 @@ export const content: SiteContent = {
   ],
   articles: [
     {
+      title: "IA, Spec-Driven Development e Agentic Harness — Do Prompt ao Harness",
+      description: "Parte 1 da série.",
+      url: "https://medium.com/javascript-in-plain-english/do-prompt-ao-harness",
+      published: "2 nov 2026",
+      featured: true,
+      badge: "Série · 5 artigos",
+      language: "pt-BR",
+    },
+    {
       title: "Understanding the JavaScript Event Loop",
       description: "Como o event loop funciona.",
       url: "https://medium.com/@leandroaps/event-loop",
       published: "5 jan 2026",
+      featured: false,
+      badge: null,
+      language: "en",
     },
   ],
   about: {
